@@ -1,21 +1,24 @@
 import { gsap } from "gsap";
 import Swiper from "swiper";
 import "swiper/css";
-import LocomotiveScroll from "locomotive-scroll";
 
 // Function to hide loader
 export const hideLoader = () => {
   gsap.to("#loader", { display: "none" });
 };
 
+
 // Function to animate text spans
 export const animateText = () => {
-  gsap.from("#upper-container-first h1 span", {
-    y: 500,
-    duration: 0.2,
-    stagger: 0.1,
-  });
+  setTimeout(() => {
+    gsap.from("#upper-container-first h1 span", {
+      y: 500,
+      duration: 1,
+      stagger: 0.1,
+    });
+  }, 2500); // Delay of 2.5 seconds
 };
+
 
 // Function to apply cursor effect
 export const cursorEffect = () => {
@@ -29,10 +32,10 @@ export const cursorEffect = () => {
   }
 };
 
-import "locomotive-scroll/dist/locomotive-scroll.css";
-
-export const initializeLocomotiveScroll = (element) => {
-  if (element) {
+// Dynamically import Locomotive Scroll and initialize it
+export const initializeLocomotiveScroll = async (element) => {
+  if (typeof window !== "undefined" && element) {
+    const LocomotiveScroll = (await import("locomotive-scroll")).default;
     const locomotiveScroll = new LocomotiveScroll({
       el: element,
       smooth: true,

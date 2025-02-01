@@ -1,4 +1,4 @@
-import "./globals.css";
+import "./styles/globals.css";
 import Header from '@/Components/Header'
 import Cursor from '@/Components/Cursor'
 export const metadata = {

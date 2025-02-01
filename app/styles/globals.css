@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: nb;
+  src: url('/fonts/NBInternationalProBoo.woff2');
+}
+@font-face {
+  font-family: headline;
+  src: url('/fonts/Rejouice-Headline.woff2');
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-font-smoothing: antialiased;
+ 
+}
+
+html,body {
+  height:100%;
+  width:100%;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Cursor Styles */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Ensure the cursor doesn't interfere with clicks */
+  z-index: 9999; /* Make sure it's above other elements */
+  transform: translate(-50%, -50%); /* Center the cursor */
+  mix-blend-mode: difference; /* Blend mode for better visibility */
+}
+/* Scale cursor on hover */
+.hover-effect:hover ~ .cursor {
+  transform: translate(-50%, -50%) scale(1.5);
+  background: #ff0000; /* Change color on hover */
+}
+
+/* Loader Styling */
+#loader {
+  height: 100vh;
+  width: 100%;
+  background-color: #12cadb; /* Change to #fff if you want white */
+  position: fixed;
+  z-index: 1999;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Ensures text stacks */
+  transition: all 0.05s ease;
+}
+
+#loader h1 {
+  font-size: 3vw;
+  color: transparent;
+  background: linear-gradient(to right, rgb(0, 76, 255), rgb(235, 36, 36));
+  -webkit-background-clip: text;
+  background-clip: text;
+  position: absolute;
+  opacity: 0;
+  animation-name: load;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+}
+
+#loader h1:nth-child(1) {
+  animation-delay: 0s;
+}
+
+#loader h1:nth-child(2) {
+  animation-delay: 1s;
+}
+
+#loader h1:nth-child(3) {
+  animation-delay: 2s;
+}
+
+@keyframes load {
+  0% {
+      opacity: 0;
+  }
+  10% {
+      opacity: 1;
+  }
+  90% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  #loader h1 {
+      font-size: 9vw;
+  }
+}
+
+#upper-container-first h1{
+  font-size: 20vw;
+  font-family: headline;
+  font-weight: 100;
+  line-height: 50vw;
+}
+
+@media (max-width: 768px) {
+  #upper-container-first h1{
+    font-size: 20vw;
+    font-family: headline;
+    font-weight: 100;
+    line-height: 130vw;
+  }
+}
+
+/* global.css or your custom styles file */
+
+/* For the background image transition and hover blur effect */
+#page2-element .box img:hover {
+  filter: blur(8px);
+}
+
+#page2-element .box:hover .prodesc {
+  opacity: 1;
+}
+
+
+
+

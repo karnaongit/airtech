@@ -38,7 +38,7 @@ const Header = () => {
       <div className="hidden md:flex gap-6">
         {["About", "Product", "Contact"].map((item) => (
           <Link key={item} href={`/${item.toLowerCase()}`}>
-            <h4 className="relative px-6 py-2 border border-gray-400 rounded-full text-gray-700 transition duration-300 overflow-hidden group">
+            <h4 className="relative px-6 py-2 border border-gray-400 rounded-full text-red-800 transition duration-300 overflow-hidden group">
               <span className="absolute inset-0 bg-black transform scale-y-0 origin-bottom transition-transform duration-300 group-hover:scale-y-100"></span>
               <span className="relative z-10 group-hover:text-white">{item}</span>
             </h4>
