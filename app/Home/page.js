@@ -11,8 +11,8 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import Image from "next/image";
 import { register } from "swiper/element/bundle";
+import Cursor from "@/Components/Cursor";
 register(); // Important for module registration
-
 const Page = () => {
   const mainRef = useRef(null);
   const swiperRef = useRef(null);
@@ -68,49 +68,55 @@ const Page = () => {
        
         <div id="main-content">
           {/* Background Slider */}
-          <div id="video-container-first" className="fixed inset-0 z-0 bg-black">
-            <Swiper
-              ref={swiperRef}
-              modules={[Autoplay, Navigation]}
-              spaceBetween={30}
-              slidesPerView={1}
-              navigation
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: true,
-              }}
-              loop={true}
-              className="w-full h-full"
-            >
-              <SwiperSlide className="relative w-full h-full">
-                <Image
-                  className="slider-img object-cover"
-                  src="/images/ball-Photoroom.jpg"
-                  alt="Slide 1"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </SwiperSlide>
-              <SwiperSlide className="relative w-full h-full">
-                <Image
-                  className="slider-img object-cover"
-                  src="/images/am.webp"
-                  alt="Slide 2"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </SwiperSlide>
-              <SwiperSlide className="relative w-full h-full">
-                <Image
-                  className="slider-img object-cover"
-                  src="/images/ball (1).jpg"
-                  alt="Slide 3"
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
-              </SwiperSlide>
-            </Swiper>
-          </div>
+          <div id="video-container-first" className="fixed inset-0 z-0">
+      <Swiper
+        ref={swiperRef}
+        modules={[Autoplay, Navigation]}
+        spaceBetween={0} // No space between slides
+        slidesPerView={1}
+        navigation={{
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }}
+        autoplay={{
+          delay: 4000, // 4 seconds delay
+          disableOnInteraction: false, // Allow autoplay to continue after user interaction
+        }}
+        loop={true}
+        speed={800} // Transition speed in milliseconds
+        className="w-full h-full"
+      >
+        <SwiperSlide className="relative w-full h-full">
+          <Image
+            className="slider-img object-cover"
+            src="/images/ball-Photoroom.jpg"
+            alt="Slide 1"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          <Image
+            className="slider-img object-cover"
+            src="/images/am.webp"
+            alt="Slide 2"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </SwiperSlide>
+        <SwiperSlide className="relative w-full h-full">
+          <Image
+            className="slider-img object-cover"
+            src="/images/ball (1).jpg"
+            alt="Slide 3"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </SwiperSlide>
+
+      
+      </Swiper>
+    </div>
 
           {/* Main Content */}
           <div id="main" ref={mainRef} className="relative z-10">
@@ -120,7 +126,7 @@ const Page = () => {
             >
               <h1
                 id="biggo"
-                className="pt-[35vh] text-white text-[10vw] leading-[40vw] font-light"
+                className="hover-effect pt-[5vh] text-blue-700 shadow-2xl  text-[10vw] leading-[40vw] font-light"
               >
                 {["A", "I", "R"].map((letter, index) => (
                   <span key={index} className="inline-block ">
@@ -128,7 +134,7 @@ const Page = () => {
                   </span>
                 ))}
                 {[" T", "E", "C", "H"].map((letter, index) => (
-                  <span key={index} className="inline-block text-red-700">
+                  <span key={index} className="inline-block  text-red-700">
                     {letter}
                   </span>
                 ))}
@@ -137,9 +143,12 @@ const Page = () => {
               
             </div>
           </div>
+            
 
+
+            
           {/* Page 2 Content */}
-          <div id="page2" className="min-h-[60vh] px-[14vw] py-[5vw] relative font-nb bg-[#faf8f3]">
+          <div id="prod" className="min-h-[60vh] px-[14vw] py-[5vw] relative font-nb bg-[#faf8f3]">
             <div id="page2-element" className="w-full h-[75vh] flex items-center justify-between mb-[8vw]">
               <div className="box relative w-[40%] h-full flex flex-col items-center justify-center p-5">
                 <h1 className="text-xl">RAVIAN</h1>

@@ -25,8 +25,8 @@ const Header = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-4 transition-all duration-300 ${
-        isScrolled ? "backdrop-blur-lg bg-white/70 shadow-md" : "bg-transparent"
+      className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-1 transition-all duration-300 ${
+        isScrolled ? "backdrop-blur-lg bg-white/70" : "bg-transparent"
       }`}
     >
       {/* Logo */}
@@ -36,11 +36,16 @@ const Header = () => {
 
       {/* Desktop Menu */}
       <div className="hidden md:flex gap-6">
-        {["About", "Product", "Contact"].map((item) => (
-          <Link key={item} href={`/${item.toLowerCase()}`}>
-            <h4 className="relative px-6 py-2 border border-gray-400 rounded-full text-red-800 transition duration-300 overflow-hidden group">
-              <span className="absolute inset-0 bg-black transform scale-y-0 origin-bottom transition-transform duration-300 group-hover:scale-y-100"></span>
-              <span className="relative z-10 group-hover:text-white">{item}</span>
+        {[
+          { name: "Home", path: "/" },
+          { name: "About", path: "/About" },
+          { name: "Product", path: "/Product" },
+          { name: "Contact", path: "/Contact" },
+        ].map(({ name, path }) => (
+          <Link key={name} href={path}>
+            <h4 className="relative px-6 py-2 border font-bold border-none bg-white rounded-full text-red-800 transition duration-300 overflow-hidden group">
+              <span className="absolute inset-0 bg-blue-700 transform scale-y-0 origin-bottom transition-transform duration-300 group-hover:scale-y-100"></span>
+              <span className="relative z-10 group-hover:text-white">{name}</span>
             </h4>
           </Link>
         ))}
@@ -54,9 +59,19 @@ const Header = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="absolute top-36 left-0 w-full bg-white shadow-lg flex flex-col items-center py-4 md:hidden">
-          {["About", "Product", "Contact"].map((item) => (
-            <Link key={item} href={`/${item.toLowerCase()}`} className="w-full text-center py-2 text-gray-700 hover:bg-gray-200">
-              {item}
+          {[
+            { name: "Home", path: "/" },
+            { name: "About", path: "/about" },
+            { name: "Product", path: "/product" },
+            { name: "Contact", path: "/contact" },
+          ].map(({ name, path }) => (
+            <Link
+              key={name}
+              href={path}
+              className="w-full text-center py-2 text-gray-700 hover:bg-gray-200"
+              onClick={() => setIsOpen(false)} // Close mobile menu on click
+            >
+              {name}
             </Link>
           ))}
         </div>
