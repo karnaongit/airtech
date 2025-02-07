@@ -1,6 +1,10 @@
 import { gsap } from "gsap";
 import Swiper from "swiper";
 import "swiper/css";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 // Function to hide loader
 export const hideLoader = () => {
@@ -31,7 +35,24 @@ export const cursorEffect = () => {
     });
   }
 };
+export const textEffect = () => {
+  let tl2 = gsap.timeline();
 
+  tl2.from(".text_elem h1", {
+    y: 120,
+    stagger: 0.1,
+    duration: 1,
+    opacity: 0,
+    scrollTrigger: {
+      trigger: "#container-second",
+      scroller: "body", // Use "body" instead of "#main" if there’s no custom scroller
+      start: "top 50%",
+      end: "top 50%",
+      scrub: 2,
+      markers: false, // Set to true if debugging
+    },
+  });
+};
 // Dynamically import Locomotive Scroll and initialize it
 export const initializeLocomotiveScroll = async (element) => {
   if (typeof window !== "undefined" && element) {

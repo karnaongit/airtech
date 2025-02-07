@@ -1,0 +1,62 @@
+/* Container for the entire page */
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background:wheat;
+  }
+  
+  /* Heading Section */
+  .headingSection {
+    height: 25vh; /* 1/4 of the page */
+    background-image: url('/images/Airtech.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1vh;
+    border-radius: 10px;
+  }
+  
+  .heading {
+    font-size: 5rem;
+    font-weight: bold;
+    color:black
+  }
+  
+  /* Masonry Grid */
+  .masonryGrid {
+    display: flex;
+    margin-left: -16px; /* Adjust gutter size */
+    width: auto;
+    padding: 10vh;
+  }
+  
+  .masonryGridColumn {
+    padding-left: 3vh; /* Adjust gutter size */
+    background-clip: padding-box;
+  }
+  
+  /* Gallery Item */
+  .galleryItem {
+    margin-bottom: 16px; /* Adjust gutter size */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .galleryItem:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .galleryImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+  }

@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: nb;
-  src: url('/fonts/NBInternationalProBoo.woff2');
+  src: url('/fonts/MBF Canno.otf');
 }
 @font-face {
   font-family: headline;
-  src: url('/fonts/Rejouice-Headline.woff2');
+  src: url('/fonts/MBF Canno.ttf');
 }
 
 *{
@@ -24,7 +24,75 @@ html,body {
   width:100%;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: headline;
+}
+
+/* Navbar Styles */
+nav {
+  padding: 8vw 5vw;
+  background-color: #efeae3;
+}
+
+nav img {
+  transition: all ease 0.2s;
+  height: 9vh;
+}
+
+#nav-part2 {
+  display: none;
+}
+
+nav h3 {
+  display: block;
+  padding: 3vw 5vw;
+  border: 1px solid #ababab;
+  border-radius: 50px;
+  font-size: 4vw;
+  font-weight: 200;
+  padding-left: 10vw;
+}
+
+/* Full-Screen Menu Styles */
+#full-scr {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #efeae3;
+  z-index: 40;
+  transition: transform 0.5s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  nav {
+    padding: 4vw;
+  }
+
+  nav img {
+    height: 7vh;
+  }
+
+  nav h3 {
+    font-size: 5vw;
+    padding: 2vw 4vw;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    padding: 3vw;
+  }
+
+  nav img {
+    height: 6vh;
+  }
+
+  nav h3 {
+    font-size: 6vw;
+    padding: 1.5vw 3vw;
+  }
 }
 
 /* Cursor Styles */
@@ -51,11 +119,42 @@ html,body {
   background: #ff0000; /* Change color on hover */
 }
 
+#center {
+  height: 0vh;
+  width: 10% ;
+  padding-left: 0vh;
+  /* background-color: orange; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid #ff0000;
+  padding-bottom: 2.5vw;
+}
+@media (max-width: 768px) 
+{#center{
+  font-size: 10vw;
+  text-align: right;
+  line-height: 8vw;
+}}
+#left h3 {
+
+  width: 25vw;
+  font-size: 1.8vw;
+  line-height: 2vw;
+  color:red;
+}
+
+#center h1 {
+  font-size: 10vw;
+  text-align: right;
+  line-height: 8vw;
+}
+
 /* Loader Styling */
 #loader {
   height: 100vh;
   width: 100%;
-  background-color: #12cadb; /* Change to #fff if you want white */
+  background-color: #fff; /* Change to #fff if you want white */
   position: fixed;
   z-index: 1999;
   top: 0;
@@ -155,4 +254,424 @@ html,body {
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 20px; /* Icon size */
+}
+
+/* Base Styles */
+.page2 {
+
+  min-height: 130vh;
+  width: 100%;
+  background-color: #fff;
+  padding: 0vw 0;
+  position: relative;
+}
+
+.moving-text {
+  
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.moving-text::-webkit-scrollbar {
+  display: none;
+}
+
+.con {
+  white-space: nowrap;
+  display: inline-block;
+  animation-name: move;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.moving-text h1 {
+  font-size: 9vw;
+  display: inline-block;
+}
+
+.gola {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #fe320a;
+  margin: 1vw 2vw;
+}
+
+@keyframes move {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.page2-bottom {
+  height: 80vh;
+  width: 100%;
+  padding: 4.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 9;
+}
+
+.page2-bottom h1 {
+  font-size: 4vw;
+  width: 60%;
+  line-height: 4vw;
+}
+
+.bottom-part2 {
+  width: 20%;
+}
+
+.bottom-part2 img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+.bottom-part2 p {
+  font-weight: 200;
+  margin-top: 2vw;
+  font-size: 1vw;
+}
+
+.gooey {
+  height:30vw;
+  width: 50vw;
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(to top right, #01d0f4ef, #0baaff);
+  top: 50%;
+  left: 5%;
+  filter: blur(11px);
+  animation-name: gooey;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes gooey {
+  from {
+    filter: blur(20px);
+    transform: translate(-11%, 10%) skew(0);
+  }
+  to {
+    filter: blur(30px);
+    transform: translate(-10%, 0%) skew(-12deg);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .page2-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 4vw;
+  }
+
+  .page2-bottom h1 {
+    font-size: 6vw;
+    width: 100%;
+    line-height: 6vw;
+    margin-bottom: 4vw;
+  }
+
+  .bottom-part2 {
+    width: 100%;
+  }
+
+  .bottom-part2 p {
+    font-size: 2vw;
+  }
+
+  .gooey {
+    height: 40vw;
+    width: 40vw;
+    top: 50%;
+    left: 20%;
+  }
+}
+
+@media (max-width: 768px) {
+  .moving-text h1 {
+    font-size: 12vw;
+  }
+
+  .gola {
+    height: 50px;
+    width: 50px;
+    margin: 2vw 3vw;
+  }
+
+  .page2-bottom h1 {
+    font-size: 8vw;
+    line-height: 8vw;
+  }
+
+  .bottom-part2 p {
+    font-size: 3vw;
+  }
+
+  .gooey {
+    height: 50vw;
+    width: 50vw;
+    top: 15%;
+    left: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .moving-text h1 {
+    font-size: 15vw;
+  }
+
+  .gola {
+    height: 40px;
+    width: 40px;
+    margin: 3vw 4vw;
+  }
+
+  .page2-bottom h1 {
+    font-size: 10vw;
+    line-height: 10vw;
+  }
+
+  .bottom-part2 p {
+    font-size: 4vw;
+  }
+
+  .gooey {
+    height: 60vw;
+    width: 60vw;
+    top: 30%;
+    left: 30%;
+  }
+}
+.text_elem{
+  font-family: nb;
+  font-size: 2.1vw;
+  margin-top: 1.2vw;
+}
+.text_elem h1{
+  font-weight: 400;
+}
+
+#page3{
+  min-height: 90vh;
+  width: 100%;
+  background-color: #fff;
+  padding: 0vw 0;
+  position: relative;
+}
+
+.elem:hover .overlay {
+  top: 0;
+}
+#fixed-image {
+  height: 30vw;
+  width: 24vw;
+  border-radius: 15px;
+  position: fixed;
+  z-index: 99;
+  left: 50%;
+  top: 25%;
+  background-size: cover;
+  background-position: center;
+}
+
+
+/* Gooey Contact Container */
+.gooey-contact {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Base Circle Styles */
+.gooey-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(11px);
+  animation-duration: 5s;
+  background-color: #ff2a00;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+/* Circle 1 Animation */
+.circle-1 {
+  animation-name: gooey-1;
+}
+
+@keyframes gooey-1 {
+  from {
+    transform: translate(-11%, 10%) skew(0);
+    filter: blur(20px);
+  }
+  to {
+    transform: translate(-10%, 0%) skew(-12deg);
+    filter: blur(30px);
+  }
+}
+
+/* Circle 2 Animation */
+.circle-2 {
+  animation-name: gooey-2;
+  animation-duration: 7s;
+}
+
+@keyframes gooey-2 {
+  from {
+    transform: translate(10%, -10%) skew(0);
+    filter: blur(15px);
+  }
+  to {
+    transform: translate(0%, 10%) skew(12deg);
+    filter: blur(25px);
+  }
+}
+
+/* Circle 3 Animation */
+.circle-3 {
+  animation-name: gooey-3;
+  animation-duration: 6s;
+}
+
+@keyframes gooey-3 {
+  from {
+    transform: translate(-5%, 5%) skew(0);
+    filter: blur(20px);
+  }
+  to {
+    transform: translate(5%, -5%) skew(-8deg);
+    filter: blur(30px);
+  }
+}
+/* Custom CSS for the button */
+/* Custom CSS for the button */
+/* Custom CSS for the button */
+#button-animation {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  border: 1px solid ,#0baaff;
+  border-radius: 30px;
+  width: 100%;
+}
+
+#button-animation button {
+  position: relative;
+  z-index: 9;
+  border-radius: 10%;
+  background: none;
+  border:#000;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  width: 100%;
+  text-align: center;
+}
+
+#button-animation button::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #0baaff ;
+  left: 0;
+  bottom: -100%;
+  border-radius: 50%;
+  transition: all ease 0.4s;
+  z-index: -1;
+}
+
+#button-animation button:hover::after {
+  bottom: 0;
+  border-radius: 0;
+}
+
+#button-animation button:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+  }
+
+  .w-1\/2 {
+    width: 100%;
+  }
+
+  .pr-8 {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .p-8 {
+    padding: 1rem;
+  }
+
+  .text-4xl {
+    font-size: 1.875rem;
+  }
+
+  .text-2xl {
+    font-size: 1.25rem;
+  }
+
+  .text-lg {
+    font-size: 1rem;
+  }
+}
+.wavylines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Send to background */
+  pointer-events: none;
+}
+
+.wavylines svg {
+  position: absolute;
+  width: 120%;
+  height: 100%;
+  opacity: 0.6;
+  filter: blur(1px); /* Adds slight depth */
+}
+
+/* Styling for the wave paths */
+.wavy-path {
+  fill: none;
+  stroke-width: 0.8;  /* Thin, clean lines */
+  stroke-linecap: round;
+  animation: waveMove 6s linear infinite alternate;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2)); /* Depth effect */
+}
+
+/* Different colors for multiple paths */
+.wavy-path:nth-child(1) { stroke: url(#grad1); animation-duration: 8s; }
+.wavy-path:nth-child(2) { stroke: url(#grad2); animation-duration: 10s; }
+.wavy-path:nth-child(3) { stroke: url(#grad3); animation-duration: 12s; }
+.wavy-path:nth-child(4) { stroke: url(#grad4); animation-duration: 14s; }
+.wavy-path:nth-child(5) { stroke: url(#grad5); animation-duration: 16s; }
+
+/* Continuous, smooth wave movement */
+@keyframes waveMove {
+  0% { transform: translateX(0px) translateY(0px); }
+  25% { transform: translateX(-10px) translateY(5px); }
+  50% { transform: translateX(-20px) translateY(0px); }
+  75% { transform: translateX(-10px) translateY(-5px); }
+  100% { transform: translateX(0px) translateY(0px); }
 }

@@ -1,0 +1,38 @@
+.aboutContainer {
+    width: 100%;
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  
+  .heroSection {
+    background: linear-gradient(135deg, #000, #333);
+    color: white;
+    padding: 8rem 2rem;
+    text-align: center;
+  }
+  
+  .teamSlider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+  }
+  
+  .teamMember {
+    display: inline-block;
+    margin: 0 1rem;
+    text-align: center;
+  }
+  
+  .ctaButton {
+    background: black;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .ctaButton:hover {
+    transform: scale(1.1);
+  }
+  
