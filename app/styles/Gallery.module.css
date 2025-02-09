@@ -8,6 +8,7 @@
   
   /* Heading Section */
   .headingSection {
+    z-index: 10;
     height: 25vh; /* 1/4 of the page */
     background-image: url('/images/Airtech.jpg'); /* Add your background image */
     background-size: cover;

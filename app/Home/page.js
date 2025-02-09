@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { animateText, initializeLocomotiveScroll,textEffect } from "../utils/global";
 import { gsap } from "gsap";
-
+import Homelast from "@/Components/last";
 // Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -130,9 +130,9 @@ const Page = () => {
         }}
         loop={true}
         speed={800} // Transition speed in milliseconds
-        className="w-full h-full"
+        className="relative w-full h-full"
       >
-        <SwiperSlide className="relative w-full h-full">
+        <SwiperSlide className=" w-full h-full">
           <Image
             className="slider-img object-cover"
             src="/images/Airtech.jpg"
@@ -142,7 +142,7 @@ const Page = () => {
           />
           
         </SwiperSlide>
-        <SwiperSlide className="relative w-full h-full">
+        <SwiperSlide className=" w-full h-full">
           <Image
             className="slider-img object-cover"
             src="/images/am.webp"
@@ -174,7 +174,7 @@ const Page = () => {
             >
               <h1
                 id="biggo"
-                className="hover-effect pt-[5vh] text-white shadow-2xl  text-[10vw] leading-[40vw] font-light"
+                className="hover-effect pt-[5vh] text-blue-600 shadow-2xl  text-[10vw] leading-[40vw] font-light"
               >
                 
                 {["A", "I", "R"].map((letter, index) => (
@@ -306,7 +306,9 @@ const Page = () => {
             </div>
           </div>
         </div>
-      
+      <div className="bg-blue-400 relative">
+      <Homelast/>
+      </div>
     </>
   );
 };

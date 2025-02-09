@@ -19,7 +19,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
+    "react-intersection-observer": "^9.15.1",
     "react-masonry-css": "^1.0.16",
+    "scrolltrigger": "^1.0.1",
     "sheryjs": "^1.0.0-beta.0.1.8",
     "swiper": "^11.2.1"
   },

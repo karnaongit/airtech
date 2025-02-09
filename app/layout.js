@@ -4,6 +4,8 @@ import Cursor from '@/Components/Cursor'
 import Footer from '@/Components/Footer'
 import PageWrapper from "@/Components/Wrapper";
 import Loader from "@/Components/Loader";
+import WhatsAppButton from "@/Components/Whatsapp";
+import ScrollToTopButton from "@/Components/scroll";
 export const metadata = {
   title: "Airtech Engineers",
   description: "Sailon",
@@ -17,7 +19,10 @@ export default function RootLayout({ children }) {
         <Cursor/>
         <Header/>
         <Loader/>
-        <PageWrapper>{children}</PageWrapper>
+        <PageWrapper>{children}
+          <WhatsAppButton/>
+          <ScrollToTopButton />
+        </PageWrapper>
         <Footer/>
       </body>
     </html>
