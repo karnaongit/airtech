@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { animateText, initializeLocomotiveScroll,textEffect } from "../utils/global";
 import { gsap } from "gsap";
-import Homelast from "@/Components/Last";
 // Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation,EffectFade } from "swiper/modules";
@@ -11,7 +10,6 @@ import "swiper/css/navigation";
 import "swiper/css/autoplay";
 import Image from "next/image";
 import { register } from "swiper/element/bundle";
-import Cursor from "@/Components/Cursor";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Power2, Power4 } from 'gsap';
 

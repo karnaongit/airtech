@@ -1,7 +1,7 @@
 // app/products/[id]/page.js
 'use client '
 import React from 'react';
-import products from '@/data/products'; // Adjust the import path as needed
+//import ProductsPage from '../page'; // Adjust the import path as needed
 
 const ProductDetailPage = ({ params }) => {
   const product = products.find((p) => p.id === parseInt(params.id));
