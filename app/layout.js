@@ -1,5 +1,5 @@
 import "./styles/globals.css";
-// import Header from '../Components/Header'
+import Header from '../Components/Header'
 import Cursor from '@/Components/Cursor'
 import Footer from '../Components/Footer'
 import PageWrapper from "../Components/Wrapper";
@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className="flex flex-col min-h-screen">     
         <Cursor/>
-        {/* <Header/> */}
+        <Header/>
         <Loader/>
         <PageWrapper><main className="flex-grow">{children}</main>
           <WhatsAppButton/>
