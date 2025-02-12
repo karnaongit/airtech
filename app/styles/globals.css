@@ -19,12 +19,23 @@
  
 }
 
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
 html,body {
   height:100%;
   width:100%;
   color: var(--foreground);
   background: var(--background);
-  font-family: headline;
+  
 }
 
 /* Navbar Styles */
@@ -176,6 +187,7 @@ nav h3 {
   animation-name: load;
   animation-duration: 1s;
   animation-timing-function: linear;
+  font-family: headline;
 }
 
 #loader h1:nth-child(1) {
@@ -308,37 +320,6 @@ nav h3 {
   }
 }
 
-.page2-bottom {
-  height: 80vh;
-  width: 100%;
-  padding: 4.5vw;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  z-index: 9;
-}
-
-.page2-bottom h1 {
-  font-size: 4vw;
-  width: 60%;
-  line-height: 4vw;
-}
-
-.bottom-part2 {
-  width: 20%;
-}
-
-.bottom-part2 img {
-  width: 100%;
-  border-radius: 15px;
-}
-
-.bottom-part2 p {
-  font-weight: 200;
-  margin-top: 2vw;
-  font-size: 1vw;
-}
 
 .gooey {
   height:30vw;
@@ -474,19 +455,43 @@ nav h3 {
 .elem:hover .overlay {
   top: 0;
 }
-#fixed-image {
-  height: 30vw;
-  width: 24vw;
+#fixed-image{
+  height: 50vw;
+  width: 40vw;
   border-radius: 15px;
   position: fixed;
   z-index: 99;
   left: 50%;
-  top: 25%;
+  top: 2%;
   background-size: cover;
   background-position: center;
+  transition: all ease 0.4s;
 }
-
-
+#fixed-image-left{
+  height: 50vw;
+  width: 40vw;
+  border-radius: 10%;
+  position: fixed;
+  z-index: 99;
+  left: 50%;
+  top: 2%;
+  background-size: cover;
+  background-position: center;
+  transition: all ease 0.4s;
+}
+#fixed-image-right{
+  height: 50vw;
+  width: 40vw;
+  border-radius:10%;
+  position: fixed;
+  z-index: 99;
+  left: 5%;
+  top: 2%;
+  background-size: cover;
+  background-position: center;
+  transition: all ease 0.4s;
+  
+}
 /* Gooey Contact Container */
 .gooey-contact {
   position: absolute;
@@ -680,6 +685,11 @@ nav h3 {
   clip-path: circle(var(--clip) at 50% 50%);
 }
 
+.lastt{
+  background-image: url('/images/Airtech.jpg');
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -695,6 +705,7 @@ nav h3 {
 
 body {
   transition: background-color ease-out .5s;
+  
 }
 
 .vdodiv {
@@ -735,4 +746,63 @@ body[theme="white"] {
 
 body[theme="white"] .section {
   color: var(--black);
+}
+
+
+@layer components {
+  .card {
+    @apply relative w-[30vh] h-[40vh] bg-[mediumturquoise] flex items-center justify-center text-[25px] font-bold rounded-[15px] cursor-pointer;
+  }
+
+  .card::before,
+  .card::after {
+    @apply absolute content-[""] w-[20%] h-[20%] flex items-center justify-center text-[25px] font-bold bg-[lightblue] transition-all duration-500;
+  }
+
+  .card::before {
+    @apply top-0 right-0 rounded-tr-[15px] rounded-bl-[100%];
+  }
+
+  .card::after {
+    @apply bottom-0 left-0 rounded-bl-[15px] rounded-tr-[100%];
+  }
+
+  .card:hover::before,
+  .card:hover::after {
+    @apply w-full h-full rounded-[15px];
+  }
+
+  .card:hover::after {
+    content: var(--hover-text, "HELLO"); /* Fallback to "HELLO" if --hover-text is not set */
+  }
+}
+
+@layer components {
+  .card-img {
+    @apply relative w-[30vh] h-[40vh] flex items-center justify-center rounded-[15px] cursor-pointer overflow-hidden;
+    background-image: var(--initial-image); /* Initial image */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card-img::before,
+  .card-img::after {
+    @apply absolute content-[""] w-[5%] h-[5%] flex items-center justify-center transition-all duration-500;
+    background-image: var(--hover-image); /* Hover image */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card-img::before {
+    @apply top-0 right-0 rounded-tr-[15px] rounded-bl-[100%];
+  }
+
+  .card-img::after {
+    @apply bottom-0 left-0 rounded-bl-[15px] rounded-tr-[100%];
+  }
+
+  .card-img:hover::before,
+  .card-img:hover::after {
+    @apply w-full h-full rounded-[15px];
+  }
 }

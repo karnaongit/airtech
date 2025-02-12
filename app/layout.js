@@ -15,11 +15,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>     
+      <body className="flex flex-col min-h-screen">     
         <Cursor/>
         <Header/>
         <Loader/>
-        <PageWrapper>{children}
+        <PageWrapper><main className="flex-grow">{children}</main>
           <WhatsAppButton/>
           <ScrollToTopButton />
         </PageWrapper>

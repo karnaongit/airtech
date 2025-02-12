@@ -164,7 +164,7 @@ export default function Homelast() {
   return (
     <div ref={containerRef} className="main w-full ">
       {/* Hero Section */}
-      <div data-color="white" className="home section w-full h-[200vh] relative">
+      <div data-color="black" className="home section w-full h-[200vh] relative">
         <div className="w-full sticky top-0 left-0">
           <div className="btmtext absolute z-[4] w-52 font-semibold bottom-[7%] left-[3%]">
             <h1>We build big ideas. <br />
@@ -199,10 +199,12 @@ export default function Homelast() {
       </div>
       <div>
       {/* Craft Section */}
-      <div data-color="cyan" className="craft section w-full px-10 py-10 flex justify-between items-start gap-10 relative">
+      {/* <div data-color="cyan" className="craft section w-full px-10 py-10 flex justify-between items-start gap-10 relative">
         <div className="ltext w-[40%] sticky top-0 left-0">
           <p className="text-md font-semibold">
-            Significo is a custom health software developer founded on the belief that technology can transform healthcare to put people first. We put humanity back at the center of healthcare by simplifying complexity, accelerating capacity, and improving outcomes.
+            Significo is a custom health software developer founded on the belief that <br/>
+            technology can transform healthcare to put people first. We put humanity back at the center of healthcare by simplifying <br/>
+            complexity, accelerating capacity, and improving outcomes.
           </p>
           <h1 className="text-7xl font-light mt-6 font-[Pp Neue Machina]">We Craft Human-Centric Health Software</h1>
           <div className="w-fit px-10 py-3 border-[0.2px] border-[--dcyan] mt-10">
@@ -212,10 +214,10 @@ export default function Homelast() {
           </div>
         </div>
         <div className="cards w-1/2 bg-red-600"></div>
-      </div>
+      </div> */}
 
       {/* Testimonial Section */}
-      <div data-color="black" className="para section w-full h-[70vh] flex items-center justify-center">
+      {/* <div data-color="black" className="para section w-full h-[70vh] flex items-center justify-center">
         <div className="text w-[70%] flex flex-col items-center justify-center">
           
           <div className="pers mt-10 flex flex-col items-center justify-center gap-5">
@@ -224,13 +226,15 @@ export default function Homelast() {
             <h3>Product Manager @ HealthCheck@360</h3>
           </div>
           <h3 className="textpara text-2xl text-center leading-[2rem]">
-            Working with the Significo team has been such a pleasure! We took on a significant project to rebuild our entire platform and the team approached the project with our best interests in mind...
-          </h3>
+            Working with the Significo team has been such a pleasure!<br/>
+             We took on a significant project to rebuild our entire platform<br/>
+             and the team approached the project with our best interests in mind...
+          </h3> 
         </div>
-      </div>
+      </div> */}
 
       {/* Capsules Section */}
-      <div data-color="white" className="capsules section w-full h-screen flex items-center justify-between mt-60 px-28">
+      {/* <div data-color="white" className="capsules section w-full h-screen flex items-center justify-between mt-60 px-28">
         <div className="left w-1/4 flex flex-col justify-between h-full py-10">
           <h1 className="text-2xl font-regular">Stay up-to-date on the latest healthcare innovations and thought leadership.</h1>
           <div className="heading">
@@ -260,7 +264,7 @@ export default function Homelast() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
       {/* Rest of the sections - implementation continues with the same structure */}
       {/* Each section follows the same pattern as the HTML but adapted for React/Next.js */}

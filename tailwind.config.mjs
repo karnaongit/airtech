@@ -11,6 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        headline: ['headline', 'sans-serif'], // Ensure a fallback font is provided
+      },
     },
   },
   plugins: [],

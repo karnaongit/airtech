@@ -1,7 +1,28 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 
 const Contact = () => {
+   const [showBallBg, setShowBallBg] = useState(false);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        const helloSection = document.getElementById("helloSection");
+        if (!helloSection) return;
+  
+        const helloTop = helloSection.getBoundingClientRect().top;
+  
+        // Change background when "hello" is at 70% of the viewport
+        if (helloTop < window.innerHeight * 1) {
+          setShowBallBg(true);
+        } else {
+          setShowBallBg(false);
+        }
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
   const [formData, setFormData] = useState({
     name: '',
     companyName: '',
@@ -29,10 +50,19 @@ const Contact = () => {
   return (
     <>
     <div className="min-h-screen w-full relative overflow-hidden py-10">
+    <div
+        className={`fixed top-0 left-0 w-full h-screen -z-10 bg-[url('/images/ball(1).jpg')] bg-cover bg-center transition-opacity duration-500 ${
+          showBallBg ? "opacity-0" : "opacity-100"
+        }`}
+      ></div>
+
+      <div className="relative text-8xl h-96 flex justify-center items-center text-center text-white">
+        Contact US
+      </div>
       {/* Gooey Background Animation */}
       <div className="gooey-contact absolute inset-0 overflow-hidden">
         {/* Circle 1 */}
-        <div
+        {/* <div
           className="gooey-circle circle-1"
           style={{
             height: '30vw',
@@ -45,10 +75,10 @@ const Contact = () => {
             left: '5%',
             filter: 'blur(11px)',
           }}
-        ></div>
+        ></div> */}
 
         {/* Circle 2 */}
-        <div
+        {/* <div
           className="gooey-circle circle-2"
           style={{
             height: '20vw',
@@ -60,7 +90,7 @@ const Contact = () => {
             right: '10%',
             filter: 'blur(15px)',
           }}
-        ></div>
+        ></div> */}
 
         {/* Circle 3 */}
         {/* <div
@@ -80,9 +110,9 @@ const Contact = () => {
       
 
       {/* Content Container */}
-      <div className="relative z-10 flex items-center justify-between min-h-screen p-8 max-w-7xl mx-auto">
+      <div className="relative z-10 flex items-center justify-between min-h-screen p-8 max-w-7xl mx-auto ">
         {/* Left Section: Keep in Touch */}
-        <div className="w-1/2 pr-8">
+        <div className="w-1/2 pr-8 p-9 -mx-3 bg-white rounded-2xl">
           <h1 className="text-4xl font-bold text-black mb-6">Keep in Touch</h1>
           <p className="text-red text-lg mb-4">
             We value your trust and are committed to providing the best service for your business.
@@ -199,6 +229,19 @@ const Contact = () => {
             </div>
           </form>
         </div>
+      </div>
+      <div
+        className={`fixed top-0 left-0 w-full h-screen -z-10 bg-[url('/images/ball-Photoroom.jpg')] bg-cover bg-center transition-opacity duration-200 ${
+          showBallBg ? "opacity-100" : "opacity-0"
+        }`}
+      >
+      </div>
+
+      <div
+        className="relative text-8xl h-96 flex justify-center items-center text-center text"
+        id="helloSection"
+      >
+        We will reach out to you soon
       </div>
       <div className="min-h-screen w-full p-8 ">
       {/* Instant Contact Section */}

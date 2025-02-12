@@ -31,38 +31,40 @@ const Header = () => {
 
   return (
     <>
-    {/* <caller>
-            <a href="/home">Home</a>
-            <a href="/about">About</a>
-          </caller> */}
-      {/* Navbar */}
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-1 transition-all duration-300 ${
-          isScrolled ? "backdrop-blur-lg bg-white/70" : "bg-transparent"
+    {/* Navbar */}
+    <nav
+      className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-3 transition-all duration-300 ${
+        isScrolled ? "backdrop-blur-lg bg-white/70" : "bg-transparent"
+      }`}
+    >
+      {/* Left: Logo */}
+      <Link href="/">
+      <div className="relative">
+      <Image
+        src="/logo.png"
+        alt="Logo"
+        width={100}
+        height={60}
+        className={`fixed top-2 left-4 transition-opacity duration-300 ${
+          isMenuOpen ? "opacity-0" : "opacity-100"
         }`}
-      >
-        {/* Logo */}
-        <Link href="/">
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={100}
-            height={50}
-            className={`transition-opacity duration-300 ${
-              isMenuOpen ? "opacity-0" : "opacity-100"
-            }`}
-          />
-        </Link>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6">
+        style={{ left: '4px' }} // Ensure left position is 4px
+      />
+      {/* Your other content */}
+    </div>
+    
+        
+                
+      </Link>
+  
+      {/* Right: Desktop Menu */}
+      <div className="hidden md:flex gap-6">
         {[
           { name: "Home", path: "/" },
           { name: "About", path: "/About" },
           { name: "Product", path: "/Product" },
           { name: "Gallery", path: "/Gallery" },
           { name: "Contact", path: "/Contact" },
-
         ].map(({ name, path }) => (
           <Link key={name} href={path}>
             <h4 className="relative px-6 py-2 border font-bold border-none bg-white rounded-full text-red-800 transition duration-300 overflow-hidden group">
@@ -71,40 +73,40 @@ const Header = () => {
             </h4>
           </Link>
         ))}
-      </div> 
-
-        {/* Mobile Menu Icon */}
-        <button className="md:hidden" onClick={toggleMenu}>
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
-
-      {/* Full-Screen Mobile Menu */}
-      <div
-        id="full-scr"
-        className={`fixed top-0 left-0 w-full h-screen bg-[#EFEAE3] z-40 transition-all duration-500 ${
-          isMenuOpen ? "translate-y-0" : "-translate-y-full"
-        }`}
-      >
-        <div className="flex flex-col items-center justify-center h-full gap-8">
-          {[
-          { name: "Home", path: "/" },
-          { name: "About", path: "/About" },
-          { name: "Product", path: "/Product" },
-          { name: "Contact", path: "/Contact" },
-        ].map(({ name, path }) =>  (
-            <Link
-              key={name}
-              href={path}
-              className="text-4xl font-bold text-gray-800 hover:text-red-800"
-              onClick={() => setIsMenuOpen(false)} // Close menu on click
-            >
-              {name}
-            </Link>
-          ))}
-        </div>
       </div>
-    </>
+  
+      {/* Mobile Menu Button */}
+      <button className="md:hidden ml-auto" onClick={toggleMenu}>
+        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+      </button>
+    </nav>
+  
+    {/* Full-Screen Mobile Menu */}
+    <div
+      id="full-scr"
+      className={`fixed top-0 left-0 w-full h-screen bg-[#EFEAE3] z-40 flex flex-col items-center justify-center gap-8 transition-transform duration-500 ${
+        isMenuOpen ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
+      {[
+        { name: "Home", path: "/" },
+        { name: "About", path: "/About" },
+        { name: "Product", path: "/Product" },
+        { name: "Contact", path: "/Contact" },
+      ].map(({ name, path }) => (
+        <Link
+          key={name}
+          href={path}
+          className="text-4xl font-bold text-gray-800 hover:text-red-800"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {name}
+        </Link>
+      ))}
+    </div>
+  </>
+  
+
   );
 };
 

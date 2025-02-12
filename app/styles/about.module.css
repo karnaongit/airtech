@@ -1,38 +1,24 @@
-.aboutContainer {
+
+#page3{
+    min-height: 90vh;
     width: 100%;
-    padding: 5rem 2rem;
-    text-align: center;
+    background-color: #fff;
+    padding: 0vw 0;
+    position: relative;
   }
   
-  .heroSection {
-    background: linear-gradient(135deg, #000, #333);
-    color: white;
-    padding: 8rem 2rem;
-    text-align: center;
+.elem:hover .overlay {
+    top: 0;
   }
   
-  .teamSlider {
-    display: flex;
-    overflow: hidden;
-    width: 100%;
-    white-space: nowrap;
+#fixed-image-left{
+    height: 50vw;
+    width: 40vw;
+    border-radius: 15px;
+    position: fixed;
+    z-index: 99;
+    left: 50%;
+    top: 2%;
+    background-size: cover;
+    background-position: center;
   }
-  
-  .teamMember {
-    display: inline-block;
-    margin: 0 1rem;
-    text-align: center;
-  }
-  
-  .ctaButton {
-    background: black;
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 5px;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .ctaButton:hover {
-    transform: scale(1.1);
-  }
-  

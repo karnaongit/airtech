@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Power2, Power4 } from 'gsap';
+import { useState } from "react";
+import Preloader from "@/components/Preloader"; // Adjust path as needed
 
 // Register GSAP plugins
 if (typeof window !== 'undefined') {
@@ -11,8 +13,25 @@ if (typeof window !== 'undefined') {
 }
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loader timeout (or remove when GSAP animation completes)
+    setTimeout(() => setIsLoading(false), 3000);
+  }, []);
+
   const containerRef = useRef(null);
 
+  useEffect(() => {
+    if (!isLoading) {
+      // Animate main content fade-in
+      gsap.fromTo(
+        "#main-content",
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 0.5 }
+      );
+    }
+  }, [isLoading]);
   useEffect(() => {
     // Initialize animations
     homePageAnimation();
@@ -159,9 +178,12 @@ export default function Home() {
   };
 
   return (
-    <div ref={containerRef} className="main w-full">
+    <>
+     <div className="relative w-full h-screen overflow-hidden">
+      {/* Main Content */}
+       (<div ref={containerRef} className="main w-full">
       {/* Hero Section */}
-      <div data-color="white" className="home section w-full h-[200vh] relative">
+      <div data-color="black" className="home section w-full h-[200vh] relative">
         <div className="w-full sticky top-0 left-0">
           <div className="btmtext absolute z-[4] w-52 font-semibold bottom-[7%] left-[3%]">
             <h1>We build big ideas. <br />
@@ -261,6 +283,10 @@ export default function Home() {
     </div>
       {/* Rest of the sections - implementation continues with the same structure */}
       {/* Each section follows the same pattern as the HTML but adapted for React/Next.js */}
+    </div>)
     </div>
+      {/* Preloader */}
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+    </>
   );
 }
