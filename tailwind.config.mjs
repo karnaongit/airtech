@@ -2,8 +2,8 @@
 export default {
   content: [
     
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./Components/**/*.{js,ts,jsx}",
+    "./app/**/*.{js,ts,jsx}",
   ],
   theme: {
     extend: {
