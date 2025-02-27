@@ -2,14 +2,47 @@
 import React from 'react';
 import Link from 'next/link';
 import products from '@/data/product'; // Adjust the import path as needed
-import { useEffect, useState } from "react";
+import { useEffect, useState,useRef } from "react";
 import Image from "next/image";
+import { gsap } from 'gsap/gsap-core';
 
 const ProductsPage = () => {
   const [showBallBg, setShowBallBg] = useState(false);
-
+  const mainRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+   
+      const loader = document.querySelector("#loader");
+         if (loader) {
+           gsap.to(loader, {
+             top: "-100%", // Move loader off-screen
+             duration: 0.5, // Animation duration
+             delay: 1, // Delay before animation starts
+             ease: "power2.inOut", // Smooth easing
+             onComplete: () => {
+               setIsLoading(false); // Hide loader after animation
+             },
+           });
+         }
+     
+        
+    // Initialize Locomotive Scroll
+        let locomotiveScrollInstance;
+        const initScroll = async () => {
+          if (mainRef.current) {
+            locomotiveScrollInstance = await initializeLocomotiveScroll(mainRef.current);
+          }
+        };
+        initScroll();
+    
+        // Cleanup on component unmount
+        return () => {
+          if (locomotiveScrollInstance) {
+            locomotiveScrollInstance.destroy();
+          }
+        }; 
     const handleScroll = () => {
+      
       const helloSection = document.getElementById("helloSection");
       if (!helloSection) return;
 
@@ -28,6 +61,12 @@ const ProductsPage = () => {
   }, []);
   return (
     <>
+    {isLoading && (
+        <div id="loader" >
+          <h1 className=" text-4xl "></h1>
+          <h1 className=" text-4xl ">PRODUCT</h1>
+        </div>
+      )}
     <div className="h-full relative overflow-hidden">
     <div
         className={`fixed top-0 left-0 w-full h-96 -z-10 bg-[url('/images/Airtech.jpg')] bg-cover bg-center transition-opacity duration-500 ${

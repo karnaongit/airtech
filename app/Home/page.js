@@ -12,7 +12,20 @@ import Image from "next/image";
 import { register } from "swiper/element/bundle";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Power2, Power4 } from 'gsap';
+import {
+  CheckCircleIcon,
+  GlobeAltIcon as GlobeIcon,
+  UserGroupIcon as UsersIcon,
+  BoltIcon as LightningBoltIcon,
+  ArrowRightIcon,
+  DocumentArrowDownIcon as DocumentDownloadIcon,
+} from '@heroicons/react/24/outline';
+import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin, Github } from "lucide-react";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
 
+import Link from "next/link";
 register(); // Important for module registration
 const Page = () => {
   const mainRef = useRef(null);
@@ -27,7 +40,6 @@ const Page = () => {
           start: "top top",
           end: "bottom bottom",
           scrub: 0.5,
-          markers:true,
         },
       });
   
@@ -69,19 +81,39 @@ const Page = () => {
 
   const slides = [
     {
-      image: "/images/Airtech.jpg",
+      image: "/images/gallery/fac0.webp",
       alt: "Slide 1",
       text: "Experience Innovation",
     },
     {
-      image: "/images/am.webp",
+      image: "/images/gallery/grp0.jpg",
+      alt: "Slide 1",
+      text: "Experience Innovation",
+    },
+    {
+      image: "/images/gallery/grp1.jpg",
       alt: "Slide 2",
       text: "Future of Technology",
     },
     {
-      image: "/images/ball(1).jpg",
+      image: "/images/gallery/grp2.jpg",
       alt: "Slide 3",
       text: "Design Excellence",
+    },
+    {
+      image: "/images/gallery/grp6.jpg",
+      alt: "Slide 4",
+      text: "Crafting Futures",
+    },
+    {
+      image: "/images/gallery/grp7.jpg",
+      alt: "Slide 5",
+      text: "Airtech Sailon",
+    },
+    {
+      image: "/images/gallery/grp4.jpg",
+      alt: "Slide 6",
+      text: "Sailon",
     },
   ];
   useEffect(() => {
@@ -167,12 +199,11 @@ const Page = () => {
   
   return (
     <>
+    
       {/* Loading Screen */}
       {isLoading && (
         <div id="loader" >
-          
-          <h1 className=" text-4xl ">For The best</h1>
-          <h1 className=" text-4xl">Airtech sailon</h1>
+          <h1 className=" text-4xl ">Airtech sailon</h1>
           <h1 className=" text-4xl">Crafting quality that strengthens industries</h1>
         </div>
       )}
@@ -180,9 +211,43 @@ const Page = () => {
       {/* Main Content */}
        
         <div id="main-content">
-          {/* Background Slider */}
-          <div id="video-container-first" className="absolute inset-0 z-0">
           
+          {/* Background Slider */}
+          
+          <div id="video-container-first" className="absolute inset-0 z-0 ">
+            
+          <div className="bg-gray-900 text-white py-2 px-6 flex justify-between items-center text-sm">
+      {/* Left Section: Contact Info */}
+      <div className="flex space-x-6">
+        <a href="mailto:contact@airtechsailon.com" className="flex items-center space-x-1 hover:text-gray-400">
+          <Mail size={16} />
+          <span>contact@airtechsailon.com</span>
+        </a>
+        <a href="tel:+91 7972351020" className="flex items-center space-x-1 hover:text-gray-400">
+          <Phone size={16} />
+          <>+91 7972351020</>
+        </a>
+      </div>
+
+      {/* Right Section: Social Links */}
+      <div className="flex space-x-4">
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
+          <Facebook size={18} />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
+          <Twitter size={18} />
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">
+          <Instagram size={18} />
+        </a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700">
+          <Linkedin size={18} />
+        </a>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
+          <Github size={18} />
+        </a>
+      </div>
+    </div>
           <div className="relative w-full h-full flex-wrap">
           {/* <div className="z-12 mx-28 p-6 z-12 text-3xl text-red-800 md:hidden">
                     <h3>Crafting Quality that strenghtens industries.</h3>
@@ -197,11 +262,11 @@ const Page = () => {
           prevEl: ".swiper-button-prev",
         }}
         autoplay={{
-          delay: 4000,
+          delay: 2000,
           disableOnInteraction: false,
         }}
         loop={true}
-        speed={800}
+        speed={400}
         className="w-full h-full"
       >
         {slides.map((slide, index) => (
@@ -237,6 +302,7 @@ const Page = () => {
         <button className="swiper-button-next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 transition-colors p-2 rounded-full backdrop-blur-sm">
           <ChevronRight className="w-6 h-6 text-white" />
         </button> */}
+        
       </Swiper>
 
       {/* Add required styles */}
@@ -288,14 +354,30 @@ const Page = () => {
 
           {/* Main Content */}
           <div id="main" ref={mainRef} className="relative z-10">
+            
+           <div className="absolute top-[40vh] right-[24vw] flex flex-col sm:flex-row gap-4 items-start px-40">
+                    <a 
+                      href="/Contact" 
+                      className="bg-bp hover:bg-blue-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                    >
+                      <ArrowRightIcon className="w-5 h-5" />
+                      Contact us
+                    </a>
+                    
+                    <button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-2xl text-lg font-semibold transition-all border-2 border-blue-600 shadow-sm flex items-center justify-center gap-2">
+                      <DocumentDownloadIcon className="w-5 h-5" />
+                      Download Brochure
+                    </button>
+                  </div>
             <div
               id="upper-container-first"
               className="relative z-20 top-60 w-full h-screen flex flex-col items-end justify-between bg-transparent"
             >
+             
               
               <h1
                 id="biggo"
-                className="hover-effect pt-[5vh] text-blue-700   text-[10vw] leading-[40vw] font-light"
+                className="hover-effect pt-[10vh] text-bp   text-[10vw] leading-[40vw] font-light"
               >
                 
                 {["A", "I", "R"].map((letter, index) => (
@@ -305,7 +387,7 @@ const Page = () => {
                 ))}
                 
                 {[" T", "E", "C", "H"].map((letter, index) => (
-                  <span key={index} className="inline-block  text-red-800">
+                  <span key={index} className="inline-block  text-rp">
                     {letter}
                   </span>
                 ))}
@@ -326,14 +408,15 @@ const Page = () => {
             
           </div>
           
-          <div id="page2" className="page2">
+          <div id="page2" className="page2 my-1">
+            
                           
-                    <div id="moving-text" className="moving-text">
+                    <div id="moving-text" className="moving-text bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl shadow-xl">
                   {[...Array(3)].map((_, index) => (
                     <div key={index} className="con">
                       <h1></h1>
                       <div className="gola"></div>
-                      <h1>Discover the Best Yarn & Thread</h1>
+                      <h1 className="bg-clip-text  bg-gradient-to-r text-transparent  from-blue-700 to-red-700">Discover the Best Yarn & Thread</h1>
                       {/* <div className="gola"></div> */}
                       <h1></h1>
                       {/* <div className="gola"></div> */}
@@ -345,36 +428,117 @@ const Page = () => {
                   <h1 className="text-[6vw] leading-[2vw] font-headline text-center mb-2
                                 md:text-[3vw] md:leading-[8.5vw] 
                                 sm:text-[3vw] sm:leading-[11vw]">
-                    WELCOME TO AIRTECH ENGINEERS!
+                    -
                   </h1>
 
                   {/* Flex Container for Image & Text */}
-                  <div className="w-full flex items-center justify-between max-w-[120vh] mx-auto 
-                                  lg:flex-row flex-col lg:space-x-1">
-                    {/* Image on the Left */}
-                    <div className="card-img w-1/2 lg:w-[30%] flex justify-center"
-                          style={{
-                            '--hover-image': 'url("/images/ai/yarn1.jpeg")', // Hover image
-                          }}>
+                    <div className="w-full flex flex-col lg:flex-row items-center justify-between max-w-8xl mx-auto px-4 py-12 gap-12 ">
+                    {/* bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl shadow-xl */}
+                {/* Image Gallery Section */}
+                <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-8">
+                  {/* Main Featured Image */}
+                  <div className="relative w-full md:w-2/3 h-96 rounded-2xl overflow-hidden group transition-all duration-500 hover:shadow-2xl">
+                    <Image
+                      src="/images/gallery/grp4.jpg"
+                      alt="Modern yarn production"
+                      fill
+                      className="object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </div>
+
+                  {/* Secondary Images Grid */}
+                  <div className="w-full md:w-1/3 grid grid-cols-2 gap-4">
+                    <div className="relative h-40 rounded-lg overflow-hidden">
                       <Image
-                        src="/images/ai/yarn2.jpeg"
-                        alt="Collaboration"
-                        width={500}
-                        height={500}
-                        className="w-full max-w-[500px] rounded-[10%] object-cover"
+                        src="/images/gallery/solo2.jpg"
+                        alt="Quality control process"
+                        fill
+                        className="object-cover"
                       />
                     </div>
-
-                    {/* Text on the Right */}
-                    <div className="w-1/2 lg:w-[50%] text-left">
-                      <h2 className="text-l sm:text-[2vw] md:text-[2vw] leading-relaxed">
-                        Airtech Engineers was founded with the vision to empower global industries 
-                        through high-quality, sustainable, and innovative PP multifilament yarn solutions. 
-                        From our beginnings to our current status as a trusted international provider, our 
-                        journey has been shaped by our commitment to these core values.
-                      </h2>
+                    <div className="relative h-40 rounded-lg overflow-hidden">
+                      <Image
+                        src="/images/gallery/solo3.jpg"
+                        alt="Our expert team"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="relative h-40 rounded-lg overflow-hidden col-span-2">
+                      <Image
+                        src="/images/gallery/solo4.jpg"
+                        alt="Sustainable manufacturing"
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="w-full lg:w-1/2 space-y-8">
+                  <h2 className="text-4xl text-fp font-bold text-gray-900">
+                    <span className="text-bp">
+                      Innovating Textile Solutions
+                    </span>
+                    <br />
+                    Since 2005
+                  </h2>
+
+                  <div className="space-y-6 text-lg border-l-4 border-blue-800 pl-6">
+                    <p className="leading-relaxed">
+                      Founded with a vision to revolutionize the synthetic yarn industry, Airtech Engineers has grown from 
+                      a regional manufacturer to a global leader in PP multifilament yarn solutions. Our journey reflects 
+                      India's industrial growth story.
+                    </p>
+
+                    <div className="bg-white p-6 rounded-xl shadow-sm">
+                      <h3 className="text-xl font-semibold mb-4 text-bp font-headline">Core Philosophy</h3>
+                      <p className="leading-relaxed">
+                        We combine cutting-edge German machinery with sustainable practices to deliver yarns that meet 
+                        global standards while maintaining ecological responsibility. Our ISO-certified processes ensure 
+                        consistency across 15+ countries we serve.
+                      </p>
+                    </div>
+
+                    <ul className="grid grid-cols-2 gap-4 text-sm">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircleIcon className="w-5 h-5 text-green-600" />
+                        <span>5000+ Tons Annual Production</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <GlobeIcon className="w-5 h-5 text-bp" />
+                        <span>15+ Countries Served</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <UsersIcon className="w-5 h-5 text-bp" />
+                        <span>200+ Skilled Professionals</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <LightningBoltIcon className="w-5 h-5 text-yellow-600" />
+                        <span>98% Operational Efficiency</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* CTA Section */}
+                  <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                    <a 
+                      href="/About" 
+                      className="bg-bp hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                    >
+                      <ArrowRightIcon className="w-5 h-5" />
+                      Explore Our Journey
+                    </a>
+                    
+                    {/* <button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-all border-2 border-blue-600 shadow-sm flex items-center justify-center gap-2">
+                      <DocumentDownloadIcon className="w-5 h-5" />
+                      Download Brochure
+                    </button> */}
+                  </div>
+                </div>
+              </div>
                 </div>
                              
                   
@@ -416,6 +580,7 @@ const Page = () => {
                             
                             </div>
                             
+                            
               </div>
 
 
@@ -428,10 +593,10 @@ const Page = () => {
             />
       <hr/> 
       <div id="page3" className="min-h-screen w-full bg-[#ffffff] py-[1vw]">
-      <h1 className="text-[4vw] leading-[2vw] font-headline text-center mb-14 -my-10
+      <h1 className="text-[4vw] leading-[2vw] font-headline text-center mb-14 -my-10 bg-clip-text  bg-gradient-to-r text-transparent  from-blue-700 to-red-700
                       md:text-[8vw] md:leading-[8.5vw] 
                       sm:text-[10vw] sm:leading-[11vw]">
-          Our Yarns
+          Yarns
         </h1>
         <hr/>
         <div id="elem-container">
@@ -439,11 +604,11 @@ const Page = () => {
           {elemData.map((elem, index) => (
             <div
               key={index}
-              className="elem h-[150px] w-full relative border-b border-[#38383864] overflow-hidden flex items-center px-[2vw]"
+              className="elem h-[150px] w-full relative border-b border-[#38383864] overflow-hidden flex items-center px-[2vw] "
               onMouseEnter={() => handleMouseEnter(elem.image)}
               onMouseLeave={handleMouseLeave}
             >
-              <div className="overlay h-full w-full bg-blue-400 absolute left-0 top-[-100%] transition-all duration-250 ease-in-out" />
+              <div className="overlay h-full w-full bg-bp absolute left-0 top-[-100%] transition-all duration-250 ease-in-out" />
               <h2 className="text-[3vw] relative z-[9]">{elem.title}</h2>
             </div>
           ))}
@@ -460,63 +625,59 @@ const Page = () => {
           </span>
           <i className="ri-corner-right-down-line"></i>
         </h5> */}
-        <h1 className="text-[6vw] font-medium font-headline">Explore our Products</h1>
+        <h1 className="text-[6vw] font-medium font-headline bg-clip-text  bg-gradient-to-r text-transparent  from-blue-700 to-red-700">Work</h1>
         {/* <h1 className="text-[4.1vw] font-medium font-sans">& engagement models</h1> */}
       </div>
 
       <div className="h-[75vh] w-full mt-[0.2vw]">
-        <div className="flex items-center justify-between h-[60px] font-sans font-normal">
-          <h3 className="text-[1.7vw]">Sailon</h3>
-          <h2 className="text-[1.7vw] font-normal">
-            <i className="ri-corner-down-right-line"></i>Airtech
-          </h2>
-        </div>
+  {/* Header */}
+  <div className="flex items-center justify-between h-[60px] font-sans font-normal px-4 sm:px-6">
+    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[1.7vw]">Sailon</h3>
+    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[1.7vw] font-normal">
+      <i className="ri-corner-down-right-line"></i> Airtech
+    </h2>
+  </div>
 
-        <div className="h-[calc(100%-60px)] w-full flex items-center justify-between">
-          {[
-            {
-              logo: '/images/three_8IbmQpggex.webp',
-              poster: '/images/ai/thread5.jpg',
-              video: '/videos/mac3.mp4'
-            },
-            {
-              logo: '/images/oura.svg',
-              poster: '/images/ai/ball_w1.jpg',
-              video: '/videos/mac2.mp4'
-            },
-            {
-              logo: '/images/Logo.svg',
-              poster: '/images/ai/thread3.jpg',
-              video: '/videos/mac1.mp4'
-            }
-          ].map((item, index) => (
-            <div key={index} className="h-full w-[32.5%] relative group">
-              <Image
-                src={item.logo}
-                alt=""
-                width={100}
-                height={100}
-                className="w-[30%] object-cover object-center absolute z-10 top-[80%] left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]"
-              />
-              <Image
-                src={item.poster}
-                alt=""
-                width={400}
-                height={600}
-                className="w-full h-full object-cover object-center absolute transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-0 cursor-pointer"
-              />
-              <video
-                autoPlay
-                loop
-                muted
-                className="w-full h-full object-cover object-center"
-              >
-                <source src={item.video} type="video/mp4" />
-              </video>
-            </div>
-          ))}
-        </div>
+  {/* Main Content */}
+  <div className="h-[calc(100%-60px)] w-full flex flex-wrap items-center justify-center md:justify-between gap-4 md:gap-0">
+    {[
+      {
+        logo: "/images/three_8IbmQpggex.webp",
+        poster: "/images/gallery/solo2.jpg",
+        video: "/videos/mac3.mp4"
+      },
+      {
+        logo: "/images/oura.svg",
+        poster: "/images/gallery/solo1.jpg",
+        video: "/videos/mac2.mp4"
+      },
+      {
+        logo: "/images/Logo.svg",
+        poster: "/images/gallery/solo4.jpg",
+        video: "/videos/mac1.mp4"
+      }
+    ].map((item, index) => (
+      <div key={index} className="h-[45vh] md:h-full w-full md:w-[32.5%] relative group">
+        <Image
+          src={item.poster}
+          alt=""
+          width={400}
+          height={600}
+          className="w-full h-full object-cover absolute transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-0 cursor-pointer"
+        />
+        <video
+          autoPlay
+          loop
+          muted
+          className="w-full h-full object-cover"
+        >
+          <source src={item.video} type="video/mp4" />
+        </video>
       </div>
+    ))}
+  </div>
+</div>
+
     </div>
       
           {/* Page 2 Content */}

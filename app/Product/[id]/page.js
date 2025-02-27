@@ -1,6 +1,6 @@
 // app/products/[id]/page.js
 'use client '
-import React from 'react';
+import React, { useEffect } from 'react';
 //import ProductsPage from '../page'; // Adjust the import path as needed
 
 const ProductDetailPage = ({ params }) => {

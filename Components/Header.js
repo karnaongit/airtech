@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react"; // Icons for menu
+import { Mail, Phone, Facebook, Twitter, Instagram, Linkedin, Github } from "lucide-react";
+
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,29 +28,63 @@ const Header = () => {
 
   return (
     <>
+    
+    
       {/* Navbar */}
+      <div>
       <nav
-        className={`fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 py-3 transition-all duration-300 ${
-          isScrolled ? "backdrop-blur-lg bg-white/70" : "bg-transparent"
+  className={`fixed top-4 left-0 w-full z-50 flex items-center justify-between px-6 py-3 transition-all duration-300 ${
+    isScrolled ? "backdrop-blur-lg bg-white/70" : "bg-transparent"
+  }`}
+>
+  
+  {/* Logo (Always on the left) */}
+  <Link href="/">
+  
+    <div className="relative">
+      <Image
+        src="/images/logo.png"
+        alt="Logo"
+        width={100}
+        height={60}
+        className={`transition-opacity duration-300 ${
+          isMenuOpen ? "opacity-0" : "opacity-100"
         }`}
-      >
-        {/* Left: Logo */}
-        <Link href="/">
-          <div className="relative">
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={100}
-              height={60}
-              className={`transition-opacity duration-300 ${
-                isMenuOpen ? "opacity-0" : "opacity-100"
-              }`}
-            />
-          </div>
-        </Link>
+      />
+    </div>
+  </Link>
 
-        {/* Right: Desktop Menu */}
-        <div className="hidden md:flex gap-6">
+  {/* Desktop Menu (Always on the right) */}
+  <div className="hidden text-fp md:flex items-center gap-6">
+    
+    {[
+      { name: "Home", path: "/" },
+      { name: "About", path: "/About" },
+      { name: "Product", path: "/Product" },
+      { name: "Gallery", path: "/Gallery" },
+      { name: "Contact", path: "/Contact" },
+    ].map(({ name, path }) => (
+      <a key={name} href={path}>
+        <h4 className="relative px-6 py-2 font-bold bg-white rounded-3xl text-rp transition duration-300 overflow-hidden group border-none">
+          <span className="absolute inset-0 bg-bp transform scale-y-0 origin-bottom transition-transform duration-300 group-hover:scale-y-100"></span>
+          <span className="relative z-10 group-hover:text-white">{name}</span>
+        </h4>
+      </a>
+    ))}
+  </div>
+
+  {/* Mobile Menu Button (Always on the right) */}
+  <button className="md:hidden" onClick={toggleMenu}>
+    {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+  </button>
+</nav>
+
+      {/* Full-Screen Mobile Menu */}
+      <div
+          className={`fixed text-fp top-0 left-0 w-full h-screen bg-white z-40 flex flex-col items-center justify-center gap-8 transition-opacity duration-500 ${
+            isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
+        >
           {[
             { name: "Home", path: "/" },
             { name: "About", path: "/About" },
@@ -56,43 +92,17 @@ const Header = () => {
             { name: "Gallery", path: "/Gallery" },
             { name: "Contact", path: "/Contact" },
           ].map(({ name, path }) => (
-            <Link key={name} href={path}>
-              <h4 className="relative px-6 py-2 font-bold bg-white rounded-full text-red-800 transition duration-300 overflow-hidden group border-none">
-                <span className="absolute inset-0 bg-blue-700 transform scale-y-0 origin-bottom transition-transform duration-300 group-hover:scale-y-100"></span>
-                <span className="relative z-10 group-hover:text-white">{name}</span>
-              </h4>
-            </Link>
+            <a
+              key={name}
+              href={path}
+              className="text-4xl font-bold text-rp hover:text-red-800"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {name}
+            </a>
           ))}
         </div>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden ml-auto" onClick={toggleMenu}>
-          {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
-
-      {/* Full-Screen Mobile Menu */}
-      <div
-        className={`fixed top-0 left-0 w-full h-screen bg-[#EFEAE3] z-40 flex flex-col items-center justify-center gap-8 transition-opacity duration-500 ${
-          isMenuOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
-      >
-        {[
-          { name: "Home", path: "/" },
-          { name: "About", path: "/About" },
-          { name: "Product", path: "/Product" },
-          { name: "Contact", path: "/Contact" },
-        ].map(({ name, path }) => (
-          <Link
-            key={name}
-            href={path}
-            className="text-4xl font-bold text-gray-800 hover:text-red-800"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {name}
-          </Link>
-        ))}
-      </div>
+    </div>
     </>
   );
 };

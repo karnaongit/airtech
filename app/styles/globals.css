@@ -11,6 +11,83 @@
   src: url('/fonts/MBF Canno.ttf');
 }
 
+:root {
+  --salmon: #EF9D71;
+  --black: #000;
+  --white: #fff;
+  --cyan: #AEDEE0;
+  --dsalmon: #532521;
+  --dcyan: #000000;
+  --bp: #1E40AF; /* Adjust shade as needed */
+  --rp: #B91C1C; /* Adjust shade as needed */
+  --fp: headline;
+}
+
+.text-bp {
+  color: var(--bp);
+}
+
+.text-rp {
+  color: var(--rp);
+}
+
+.bg-bp {
+  background-color: var(--bp);
+}
+
+.bg-rp {
+  background-color: var(--rp);
+}
+
+.text-fp {
+  font-family: var(--fp);
+}
+
+body {
+  transition: background-color ease-out .5s;
+  
+}
+
+.vdodiv {
+  clip-path: circle(var(--clip) at 50% 50%);
+}
+
+*::selection {
+  background-color: var(--salmon);
+}
+
+body[theme="black"] {
+  background-color: var(--black);
+}
+
+body[theme="black"] .section {
+  color: var(--white);
+}
+
+body[theme="cyan"] {
+  background-color: var(--cyan);
+}
+
+body[theme="cyan"] .section {
+  color: var(--dcyan);
+}
+
+body[theme="salmon"] {
+  background-color: var(--salmon);
+}
+
+body[theme="salmon"] .section {
+  color: var(--dsalmon);
+}
+
+body[theme="white"] {
+  background-color: var(--white);
+}
+
+body[theme="white"] .section {
+  color: var(--black);
+}
+
 *{
   margin:0;
   padding:0;
@@ -185,7 +262,7 @@ nav h3 {
   position: absolute;
   opacity: 0;
   animation-name: load;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-timing-function: linear;
   font-family: headline;
 }
@@ -307,7 +384,7 @@ nav h3 {
   width: 70px;
   border-radius: 50%;
   display: inline-block;
-  background-color: #fe320a;
+  background-color: var(--rp);
   margin: 1vw 2vw;
 }
 
@@ -326,7 +403,7 @@ nav h3 {
   width: 50vw;
   position: absolute;
   border-radius: 50%;
-  background: linear-gradient(to top right, #01d0f4ef, #0baaff);
+  background: linear-gradient(to top right, var(--bp), #0baaff);
   top: 50%;
   left: 5%;
   filter: blur(11px);
@@ -339,12 +416,12 @@ nav h3 {
 
 @keyframes gooey {
   from {
-    filter: blur(20px);
-    transform: translate(-11%, 10%) skew(0);
+    filter: blur(40px);
+    transform: translate(-11%, -60%) skew(0);
   }
   to {
-    filter: blur(30px);
-    transform: translate(-10%, 0%) skew(-12deg);
+    filter: blur(80px);
+    transform: translate(30%, -10%) skew(-20deg);
   }
 }
 
@@ -456,37 +533,37 @@ nav h3 {
   top: 0;
 }
 #fixed-image{
-  height: 50vw;
-  width: 40vw;
-  border-radius: 15px;
+  height: 30vw;
+  width: 20vw;
+  border-radius: 5%;
   position: fixed;
   z-index: 99;
-  left: 50%;
-  top: 2%;
+  right: 10%;
+  top: 20%;
   background-size: cover;
   background-position: center;
   transition: all ease 0.4s;
 }
 #fixed-image-left{
   height: 50vw;
-  width: 40vw;
-  border-radius: 10%;
+  width: 30vw;
+  border-radius: 5%;
   position: fixed;
   z-index: 99;
   left: 50%;
-  top: 2%;
+  top: 20%;
   background-size: cover;
   background-position: center;
   transition: all ease 0.4s;
 }
 #fixed-image-right{
   height: 50vw;
-  width: 40vw;
-  border-radius:10%;
+  width: 30vw;
+  border-radius:5%;
   position: fixed;
   z-index: 99;
   left: 5%;
-  top: 2%;
+  top: 20%;
   background-size: cover;
   background-position: center;
   transition: all ease 0.4s;
@@ -690,63 +767,7 @@ nav h3 {
 }
 
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  --salmon: #EF9D71;
-  --black: #000;
-  --white: #fff;
-  --cyan: #AEDEE0;
-  --dsalmon: #532521;
-  --dcyan: #000000;
-}
-
-body {
-  transition: background-color ease-out .5s;
-  
-}
-
-.vdodiv {
-  clip-path: circle(var(--clip) at 50% 50%);
-}
-
-*::selection {
-  background-color: var(--salmon);
-}
-
-body[theme="black"] {
-  background-color: var(--black);
-}
-
-body[theme="black"] .section {
-  color: var(--white);
-}
-
-body[theme="cyan"] {
-  background-color: var(--cyan);
-}
-
-body[theme="cyan"] .section {
-  color: var(--dcyan);
-}
-
-body[theme="salmon"] {
-  background-color: var(--salmon);
-}
-
-body[theme="salmon"] .section {
-  color: var(--dsalmon);
-}
-
-body[theme="white"] {
-  background-color: var(--white);
-}
-
-body[theme="white"] .section {
-  color: var(--black);
-}
 
 
 @layer components {
@@ -779,7 +800,7 @@ body[theme="white"] .section {
 
 @layer components {
   .card-img {
-    @apply relative w-[30vh] h-[40vh] flex items-center justify-center rounded-[15px] cursor-pointer overflow-hidden;
+    @apply relative w-[30vh] h-[40vh] flex items-center justify-center rounded-[25px] cursor-pointer overflow-hidden;
     background-image: var(--initial-image); /* Initial image */
     background-size: cover;
     background-position: center;
@@ -787,7 +808,7 @@ body[theme="white"] .section {
 
   .card-img::before,
   .card-img::after {
-    @apply absolute content-[""] w-[5%] h-[5%] flex items-center justify-center transition-all duration-500;
+    @apply absolute content-[""] w-[1%] h-[1%] flex items-center justify-center transition-all duration-500;
     background-image: var(--hover-image); /* Hover image */
     background-size: cover;
     background-position: center;

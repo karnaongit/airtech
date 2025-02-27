@@ -34,3 +34,38 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+{
+  "name": "airtech",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "framer-motion": "^12.4.1",
+    "gsap": "^3.12.7",
+    "locomotive-scroll": "^4.1.4",
+    "lucide-react": "^0.474.0",
+    "next": "15.1.6",
+    "next-intl": "^3.26.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "react-intersection-observer": "^9.15.1",
+    "react-masonry-css": "^1.0.16",
+    "scrolltrigger": "^1.0.1",
+    "sheryjs": "^1.0.0-beta.0.1.8",
+    "swiper": "^11.2.1"
+  },
+  "devDependencies": {
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "webpack-glsl-loader": "^1.0.1"
+  }
+}

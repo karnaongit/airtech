@@ -6,6 +6,7 @@ import PageWrapper from "../Components/Wrapper";
 import Loader from "../Components/Loader";
 import WhatsAppButton from "../Components/Whatsapp";
 import ScrollToTopButton from "../Components/scroll";
+import Link from "next/link";
 export const metadata = {
   title: "Airtech Engineers",
   description: "Sailon",
@@ -15,11 +16,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen">     
+      
+      <body className="flex flex-col min-h-screen">
+             
         <Cursor/>
+        
         <Header/>
         <Loader/>
-        <PageWrapper><main className="flex-grow">{children}</main>
+        <PageWrapper>
+          <main className="flex-grow">
+            
+            {children}
+          </main>
           <WhatsAppButton/>
           <ScrollToTopButton />
         </PageWrapper>

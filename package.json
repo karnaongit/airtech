@@ -5,10 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
+    "export": "next build && next export",
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "framer-motion": "^12.4.1",

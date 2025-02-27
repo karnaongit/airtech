@@ -16,7 +16,7 @@ export const hideLoader = () => {
 export const animateText = () => {
   setTimeout(() => {
     gsap.from("#upper-container-first h1 span", {
-      y: 500,
+      y: 400,
       duration: 1,
       stagger: 0.1,
     });

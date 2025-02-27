@@ -1,0 +1,63 @@
+/* styles/Footer.module.css */
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: min-content;
+    background-color: var(--bp);
+    color: white;
+    transition: all 0.5s;
+  }
+  
+  .footerScrolled {
+    height: 50vh;
+  }
+  
+  .footerNotScrolled {
+    height: 40vh;
+  }
+  
+  .container {
+    max-width: 80rem; /* Equivalent to max-w-7xl in Tailwind */
+    margin: 0 auto;
+    padding: 1.5rem; /* Equivalent to px-6 py-10 in Tailwind */
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 1 column on mobile */
+    gap: 2rem; /* Equivalent to gap-8 in Tailwind */
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    }
+  }
+  
+  .quickLinks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem; /* Equivalent to gap-4 in Tailwind */
+  }
+  
+  @media (min-width: 768px) {
+    .quickLinks {
+      flex-direction: column;
+      gap: 0.25rem; /* Equivalent to gap-1 in Tailwind */
+    }
+  }
+  
+  .socialMedia {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem; /* Equivalent to space-x-4 in Tailwind */
+  }
+  
+  .link {
+    color: inherit;
+    transition: color 0.3s;
+  }
+  
+  .link:hover {
+    color: gray; /* Equivalent to hover:text-gray-400 in Tailwind */
+  }
