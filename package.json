@@ -2,10 +2,12 @@
   "name": "airtech",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
+
     "export": "next build && next export",
     "lint": "next lint"
   },
@@ -13,6 +15,7 @@
     "@heroicons/react": "^2.2.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
+    "cross-env": "^7.0.3",
     "framer-motion": "^12.4.1",
     "gsap": "^3.12.7",
     "locomotive-scroll": "^4.1.4",

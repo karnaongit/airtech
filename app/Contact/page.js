@@ -222,7 +222,7 @@ const Contact = () => {
     <div className="min-h-screen w-full p-4 md:p-8 ">
       {/* Instant Contact Section */}
       <div className="max-w-4xl mx-auto text-center mb-12 space-y-4 md:space-x-10">
-        <h1 className="text-2xl md:text-4xl font-bold text-black mb-6 font-headline text-white">Instant Contact</h1>
+        <h1 className="text-2xl md:text-4xl font-bold text-black mb-6 font-headline text">Instant Contact</h1>
         <div className="bg-white w-full md:w-auto rounded-lg shadow-lg p-4 md:p-6 inline-block">
           <h1 className='flex flex-col md:flex-row items-center justify-center'>
             Phone Number:  
