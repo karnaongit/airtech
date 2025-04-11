@@ -1,4 +1,8 @@
 "use client";
+import HeroSection from './component/hero'
+import AboutH from './component/about'
+import ProdH from './component/prod'
+import VideoH from './component/video'
 import React, { useEffect, useRef, useState } from "react";
 import { animateText, initializeLocomotiveScroll,textEffect } from "../utils/global";
 import { gsap } from "gsap";
@@ -13,10 +17,6 @@ import { register } from "swiper/element/bundle";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Power2, Power4 } from 'gsap';
 import {
-  CheckCircleIcon,
-  GlobeAltIcon as GlobeIcon,
-  UserGroupIcon as UsersIcon,
-  BoltIcon as LightningBoltIcon,
   ArrowRightIcon,
   DocumentArrowDownIcon as DocumentDownloadIcon,
 } from '@heroicons/react/24/outline';
@@ -124,15 +124,15 @@ const Page = () => {
     if (loader) {
       gsap.to(loader, {
         top: "-100%", // Move loader off-screen
-        duration: 0.5, // Animation duration
-        delay: 2.5, // Delay before animation starts
+        duration: 1, // Animation duration
+        delay: 1, // Delay before animation starts
         ease: "power2.inOut", // Smooth easing
         onComplete: () => {
           setIsLoading(false); // Hide loader after animation
         },
       });
     }
-
+      
     // Animate text after loader animation completes
     animateText();
 
@@ -152,49 +152,7 @@ const Page = () => {
       }
     };
   }, []);
-  const [hoveredImage, setHoveredImage] = useState('');
-  const [isHovering, setIsHovering] = useState(false);
 
-  const elemData = [
-    {
-      title: "Sailon Single Yran",
-      image: "images/gallery/solo4.jpg",
-
-       },
-    {
-      title: "Sailon Twisted Yran & Sailon Sewing Threa",
-      image: "/images/gallery/solo1.jpg"
-    },
-    {
-      title: "Sailon Sewing Thread ( Nylon Thread )",
-      image: "images/gallery/solo2.jpg"
-    },
-    {
-      title: "Sailon NW-1 1000 Length",
-      image: "images/gallery/solo3.jpg"
-    },
-    // {
-    //   title: "SOHO NYC",
-    //   image: "https://images.unsplash.com/photo-1700924546093-f914fd5b8814?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyOHx8fGVufDB8fHx8fA%3D%3D"
-    // },
-    // {
-    //   title: "SOHO 2023",
-    //   image: "https://images.unsplash.com/photo-1700601437860-e66da79cf6d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1OXx8fGVufDB8fHx8fA%3D%3D"
-    // },
-    // {
-    //   title: "Play New Kidvision",
-    //   image: "https://images.unsplash.com/photo-1700769025506-6c3dcb9ec9b7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2OXx8fGVufDB8fHx8fA%3D%3D"
-    // }
-  ];
-
-  const handleMouseEnter = (image) => {
-    setHoveredImage(image);
-    setIsHovering(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovering(false);
-  };
 
   
   return (
@@ -205,6 +163,7 @@ const Page = () => {
         <div id="loader" >
           <h1 className=" text-4xl ">Airtech sailon</h1>
           <h1 className=" text-4xl">Crafting quality that strengthens industries</h1>
+          
         </div>
       )}
 
@@ -216,94 +175,63 @@ const Page = () => {
           
           <div id="video-container-first" className="absolute inset-0 z-0 ">
             
-          <div className="bg-gray-900 text-white py-2 px-6 flex justify-between items-center text-sm">
-      {/* Left Section: Contact Info */}
-      <div className="flex space-x-6">
-        <a href="mailto:contact@airtechsailon.com" className="flex items-center space-x-1 hover:text-gray-400">
-          <Mail size={16} />
-          <span>contact@airtechsailon.com</span>
-        </a>
-        <a href="tel:+91 7972351020" className="flex items-center space-x-1 hover:text-gray-400">
-          <Phone size={16} />
-          <>+91 7972351020</>
-        </a>
-      </div>
-
-      {/* Right Section: Social Links */}
-      <div className="flex space-x-4">
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500">
-          <Facebook size={18} />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
-          <Twitter size={18} />
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-500">
-          <Instagram size={18} />
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-700">
-          <Linkedin size={18} />
-        </a>
-        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-          <Github size={18} />
-        </a>
-      </div>
-    </div>
-          <div className="relative w-full h-full flex-wrap">
-          {/* <div className="z-12 mx-28 p-6 z-12 text-3xl text-red-800 md:hidden">
-                    <h3>Crafting Quality that strenghtens industries.</h3>
-                </div> */}
-      <Swiper
-        ref={swiperRef}
-        modules={[Autoplay, Navigation, EffectFade]}
-        spaceBetween={0}
-        slidesPerView={1}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        loop={true}
-        speed={400}
-        className="w-full h-full"
-      >
-        {slides.map((slide, index) => (
-          <SwiperSlide key={index} className="relative w-full h-full overflow-hidden">
-            {/* Image wrapper with zoom animation */}
-            <div className="absolute inset-0 scale-600 animate-ken-burns">
-              <Image
-                className="object-cover"
-                src={slide.image}
-                alt={slide.alt}
-                fill
-                priority
-              />
-              
-            </div>
-            
-            {/* Text overlay with animation */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              
-              <div className="text-white text-6xl font-bold opacity-0 animate-slide-up z-10">
-                {slide.text}
-                
-              </div>
-              
-            </div>
-          </SwiperSlide>
-        ))}
-
-        {/* Custom navigation buttons */}
-        {/* <button className="swiper-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 transition-colors p-2 rounded-full backdrop-blur-sm">
-          <ChevronLeft className="w-6 h-6 text-white" />
-        </button>
-        <button className="swiper-button-next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 transition-colors p-2 rounded-full backdrop-blur-sm">
-          <ChevronRight className="w-6 h-6 text-white" />
-        </button> */}
         
-      </Swiper>
+                    <div className=" w-full h-full flex-wrap">
+                    {/* <div className="z-12 mx-28 p-6 z-12 text-3xl text-red-800 md:hidden">
+                              <h3>Crafting Quality that strenghtens industries.</h3>
+                          </div> */}
+                <Swiper
+                  ref={swiperRef}
+                  modules={[Autoplay, Navigation, EffectFade]}
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  navigation={{
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                  }}
+                  autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                  }}
+                  loop={true}
+                  speed={400}
+                  className="w-full h-full"
+                >
+                  {slides.map((slide, index) => (
+                    <SwiperSlide key={index} className="relative w-full h-full overflow-hidden">
+                      {/* Image wrapper with zoom animation */}
+                      <div className="absolute inset-0 scale-600 animate-ken-burns">
+                        <Image
+                          className="object-cover"
+                          src={slide.image}
+                          alt={slide.alt}
+                          fill
+                          priority
+                        />
+                        
+                      </div>
+                      
+                      {/* Text overlay with animation */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        
+                        <div className="text-white text-6xl font-bold opacity-0 animate-slide-up z-10">
+                          {slide.text}
+                          
+                        </div>
+                        
+                      </div>
+                    </SwiperSlide>
+                  ))}
+
+                  {/* Custom navigation buttons */}
+                  <button className="swiper-button-prev absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 transition-colors p-2 rounded-full backdrop-blur-sm">
+                    <ChevronLeft className="w-6 h-6 text-white" />
+                  </button>
+                  <button className="swiper-button-next absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 transition-colors p-2 rounded-full backdrop-blur-sm">
+                    <ChevronRight className="w-6 h-6 text-white" />
+                  </button>
+                  
+                </Swiper>
 
       {/* Add required styles */}
       <style jsx global>{`
@@ -355,26 +283,28 @@ const Page = () => {
           {/* Main Content */}
           <div id="main" ref={mainRef} className="relative z-10">
             
-           <div className="absolute top-[40vh] right-[24vw] flex flex-col sm:flex-row gap-4 items-start px-40">
-                    <a 
-                      href="/Contact" 
-                      className="bg-bp hover:bg-blue-700 text-white px-8 py-4 rounded-2xl text-lg font-semibold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
-                    >
-                      <ArrowRightIcon className="w-5 h-5" />
-                      Contact us
-                    </a>
-                    
-                    <button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-2xl text-lg font-semibold transition-all border-2 border-blue-600 shadow-sm flex items-center justify-center gap-2">
-                      <DocumentDownloadIcon className="w-5 h-5" />
-                      Download Brochure
-                    </button>
-                  </div>
+          <div className="absolute top-[20vh] right-[24vw] flex flex-row gap-4 items-center px-4 sm:px-40 z-[1000]">
+                  <a 
+                    href="/Contact" 
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-lg font-semibold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
+                  >
+                    <ArrowRightIcon className="w-4 sm:w-5 h-4 sm:h-5" />
+                    Contact us
+                  </a>
+                  
+                  <a 
+                    href="https://drive.google.com/uc?export=download&id=1AA8K5aZbxEnefItOuKgIN16N1nS7dCV6"
+                    download="AirTech_Brochure.pdf"
+                    className="bg-white hover:bg-gray-50 text-blue-600 px-4 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-lg font-semibold transition-all border-2 border-blue-600 shadow-sm flex items-center justify-center gap-2"
+                  >
+                    <DocumentDownloadIcon className="w-4 sm:w-5 h-4 sm:h-5" />
+                    Download Brochure
+                  </a>
+                </div>
             <div
               id="upper-container-first"
               className="relative z-20 top-60 w-full h-screen flex flex-col items-end justify-between bg-transparent"
             >
-             
-              
               <h1
                 id="biggo"
                 className="hover-effect pt-[10vh] text-bp   text-[10vw] leading-[40vw] font-light"
@@ -391,324 +321,25 @@ const Page = () => {
                     {letter}
                   </span>
                 ))}
-                <div id="center">
+                {/* <div id="center">
                 
-                {/* <div id="right">
+                 <div id="right">
                     <h1>SPACES <br/>
                         THAT <br/>
                         INSPIRE</h1>
-                </div> */}
-
-            </div>
-                
+                </div> 
+            </div>  */}
               </h1>
-              
-              
             </div>
             
           </div>
-          
-          <div id="page2" className="page2 my-1">
-            
-                          
-                    <div id="moving-text" className="moving-text bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl shadow-xl">
-                  {[...Array(3)].map((_, index) => (
-                    <div key={index} className="con">
-                      <h1></h1>
-                      <div className="gola"></div>
-                      <h1 className="bg-clip-text  bg-gradient-to-r text-transparent  from-blue-700 to-red-700">Discover the Best Yarn & Thread</h1>
-                      {/* <div className="gola"></div> */}
-                      <h1></h1>
-                      {/* <div className="gola"></div> */}
-                    </div>
-                  ))}
-                </div>
-                <div  className="w-full px-[2vw] flex flex-col items-center justify-center relative z-10">
-                  {/* Heading Section */}
-                  <h1 className="text-[6vw] leading-[2vw] font-headline text-center mb-2
-                                md:text-[3vw] md:leading-[8.5vw] 
-                                sm:text-[3vw] sm:leading-[11vw]">
-                    -
-                  </h1>
-
-                  {/* Flex Container for Image & Text */}
-                    <div className="w-full flex flex-col lg:flex-row items-center justify-between max-w-8xl mx-auto px-4 py-12 gap-12 ">
-                    {/* bg-gradient-to-br from-gray-50 to-blue-50 rounded-3xl shadow-xl */}
-                {/* Image Gallery Section */}
-                <div className="w-full lg:w-1/2 flex flex-col md:flex-row gap-8">
-                  {/* Main Featured Image */}
-                  <div className="relative w-full md:w-2/3 h-96 rounded-2xl overflow-hidden group transition-all duration-500 hover:shadow-2xl">
-                    <Image
-                      src="/images/gallery/grp4.jpg"
-                      alt="Modern yarn production"
-                      fill
-                      className="object-cover transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </div>
-
-                  {/* Secondary Images Grid */}
-                  <div className="w-full md:w-1/3 grid grid-cols-2 gap-4">
-                    <div className="relative h-40 rounded-lg overflow-hidden">
-                      <Image
-                        src="/images/gallery/solo2.jpg"
-                        alt="Quality control process"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="relative h-40 rounded-lg overflow-hidden">
-                      <Image
-                        src="/images/gallery/solo3.jpg"
-                        alt="Our expert team"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="relative h-40 rounded-lg overflow-hidden col-span-2">
-                      <Image
-                        src="/images/gallery/solo4.jpg"
-                        alt="Sustainable manufacturing"
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content Section */}
-                <div className="w-full lg:w-1/2 space-y-8">
-                  <h2 className="text-4xl text-fp font-bold text-gray-900">
-                    <span className="text-bp">
-                      Innovating Textile Solutions
-                    </span>
-                    <br />
-                    Since 2005
-                  </h2>
-
-                  <div className="space-y-6 text-lg border-l-4 border-blue-800 pl-6">
-                    <p className="leading-relaxed">
-                      Founded with a vision to revolutionize the synthetic yarn industry, Airtech Engineers has grown from 
-                      a regional manufacturer to a global leader in PP multifilament yarn solutions. Our journey reflects 
-                      India's industrial growth story.
-                    </p>
-
-                    <div className="bg-white p-6 rounded-xl shadow-sm">
-                      <h3 className="text-xl font-semibold mb-4 text-bp font-headline">Core Philosophy</h3>
-                      <p className="leading-relaxed">
-                        We combine cutting-edge German machinery with sustainable practices to deliver yarns that meet 
-                        global standards while maintaining ecological responsibility. Our ISO-certified processes ensure 
-                        consistency across 15+ countries we serve.
-                      </p>
-                    </div>
-
-                    <ul className="grid grid-cols-2 gap-4 text-sm">
-                      <li className="flex items-center space-x-2">
-                        <CheckCircleIcon className="w-5 h-5 text-green-600" />
-                        <span>5000+ Tons Annual Production</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <GlobeIcon className="w-5 h-5 text-bp" />
-                        <span>15+ Countries Served</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <UsersIcon className="w-5 h-5 text-bp" />
-                        <span>200+ Skilled Professionals</span>
-                      </li>
-                      <li className="flex items-center space-x-2">
-                        <LightningBoltIcon className="w-5 h-5 text-yellow-600" />
-                        <span>98% Operational Efficiency</span>
-                      </li>
-                    </ul>
-                  </div>
-
-                  {/* CTA Section */}
-                  <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                    <a 
-                      href="/About" 
-                      className="bg-bp hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all transform hover:scale-105 shadow-lg flex items-center justify-center gap-2"
-                    >
-                      <ArrowRightIcon className="w-5 h-5" />
-                      Explore Our Journey
-                    </a>
-                    
-                    {/* <button className="bg-white hover:bg-gray-50 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold transition-all border-2 border-blue-600 shadow-sm flex items-center justify-center gap-2">
-                      <DocumentDownloadIcon className="w-5 h-5" />
-                      Download Brochure
-                    </button> */}
-                  </div>
-                </div>
-              </div>
-                </div>
-                             
-                  
-                  {/* <div id="page2-bottom" className="page2-bottom">
-                  <h1 className="font-headline">
-                              WELCOME TO AIRTECH ENGINEERS!<br/>
-                          </h1>
-                  <div id="bottom-part2" className="bottom-part2">
-                      
-                      <Image
-                        src="/images/freepik__a-cylindrical-arrangement-of-colorful-intertwined-__34819.jpeg"
-                        alt="Collaboration"
-                        width={500}
-                        height={500}
-                        className="bottom-image"
-                      />
-                      <p className="my-1 text-xs ">
-                      At Airtech Sailon, we deliver precision-engineered polypropylene (PP) 
-                      multifilament yarn that meets the highest standards of durability and performance. 
-                      Our products are trusted by industry leaders across the globe for their reliability, 
-                      strength, and versatility in demanding applications. 
-                      </p>
-                      
-                    </div>
-                    <div> 
-                              <h2 className="text-xl">Mastery in the Art of making Yarns and Threads</h2>
-                              <h2 className="text-xl"> Airtech
-                                Engineers was founded with the vision to empower global
-                                industries through high-quality, sustainable, and innovative
-                                PP multifilament yarn solutions. From our beginnings to our
-                                current status as a trusted international provider, our journey
-                                has been shaped by our commitment to these core values.
-                              </h2>
-                    </div>
-                  </div> */}
-                  
-                            {/* Gooey Animation */}
-                            <div id="gooey" className="gooey">
-                            
-                            </div>
-                            
-                            
-              </div>
-
-
-          <div 
-              id="fixed-image" 
-              style={{
-                backgroundImage: `url(${hoveredImage})`,
-                display: isHovering ? 'block' : 'none'
-              }}
-            />
+      <AboutH/>
       <hr/> 
-      <div id="page3" className="min-h-screen w-full bg-[#ffffff] py-[1vw]">
-      <h1 className="text-[4vw] leading-[2vw] font-headline text-center mb-14 -my-10 bg-clip-text  bg-gradient-to-r text-transparent  from-blue-700 to-red-700
-                      md:text-[8vw] md:leading-[8.5vw] 
-                      sm:text-[10vw] sm:leading-[11vw]">
-          Yarns
-        </h1>
-        <hr/>
-        <div id="elem-container">
-          
-          {elemData.map((elem, index) => (
-            <div
-              key={index}
-              className="elem h-[150px] w-full relative border-b border-[#38383864] overflow-hidden flex items-center px-[2vw] "
-              onMouseEnter={() => handleMouseEnter(elem.image)}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="overlay h-full w-full bg-bp absolute left-0 top-[-100%] transition-all duration-250 ease-in-out" />
-              <h2 className="text-[3vw] relative z-[9]">{elem.title}</h2>
-            </div>
-          ))}
-        </div>
-        
+      <ProdH/>
+      <hr/>
+      <VideoH/>
+      <hr/>
       </div>
-      {/* The product page*/}
-      <div className="relative h-full w-full p-[3vw] bg-white">
-      <div className="text-center">
-        {/* <h5 className="text-[1.2vw] font-medium mb-[1vw] font-sans">
-          Agency & Venture{' '}
-          <span className="bg-black text-white px-2.5 py-1 rounded-lg text-[0.8vw] mr-2.5">
-            Models
-          </span>
-          <i className="ri-corner-right-down-line"></i>
-        </h5> */}
-        <h1 className="text-[6vw] font-medium font-headline bg-clip-text  bg-gradient-to-r text-transparent  from-blue-700 to-red-700">Work</h1>
-        {/* <h1 className="text-[4.1vw] font-medium font-sans">& engagement models</h1> */}
-      </div>
-
-      <div className="h-[75vh] w-full mt-[0.2vw]">
-  {/* Header */}
-  <div className="flex items-center justify-between h-[60px] font-sans font-normal px-4 sm:px-6">
-    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-[1.7vw]">Sailon</h3>
-    <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[1.7vw] font-normal">
-      <i className="ri-corner-down-right-line"></i> Airtech
-    </h2>
-  </div>
-
-  {/* Main Content */}
-  <div className="h-[calc(100%-60px)] w-full flex flex-wrap items-center justify-center md:justify-between gap-4 md:gap-0">
-    {[
-      {
-        logo: "/images/three_8IbmQpggex.webp",
-        poster: "/images/gallery/solo2.jpg",
-        video: "/videos/mac3.mp4"
-      },
-      {
-        logo: "/images/oura.svg",
-        poster: "/images/gallery/solo1.jpg",
-        video: "/videos/mac2.mp4"
-      },
-      {
-        logo: "/images/Logo.svg",
-        poster: "/images/gallery/solo4.jpg",
-        video: "/videos/mac1.mp4"
-      }
-    ].map((item, index) => (
-      <div key={index} className="h-[45vh] md:h-full w-full md:w-[32.5%] relative group">
-        <Image
-          src={item.poster}
-          alt=""
-          width={400}
-          height={600}
-          className="w-full h-full object-cover absolute transition-all duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:opacity-0 cursor-pointer"
-        />
-        <video
-          autoPlay
-          loop
-          muted
-          className="w-full h-full object-cover"
-        >
-          <source src={item.video} type="video/mp4" />
-        </video>
-      </div>
-    ))}
-  </div>
-</div>
-
-    </div>
-      
-          {/* Page 2 Content */}
-            
-          {/* <div id="prod" className="min-h-[60vh] px-[14vw] py-[5vw] relative font-nb bg-[#faf8f3]">
-            <div id="page2-element" className="w-full h-[75vh] flex items-center justify-between mb-[8vw]">
-              <div className="box relative w-[40%] h-full flex flex-col items-center justify-center p-5">
-                <h1 className="text-xl">RAVIAN</h1>
-                <img
-                  src="https://gratisography.com/wp-content/uploads/2024/11/gratisography-augmented-reality-800x525.jpg"
-                  alt=""
-                  className="object-cover w-full h-full absolute transition-opacity ease-out duration-700"
-                />
-                <div className="prodesc absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0">
-                  hare krishna
-                </div>
-              </div>
-              <div className="box relative w-[40%] h-full flex flex-col items-center justify-center p-5">
-                <h1 className="text-xl">OURA</h1>
-                <img
-                  src="/images/freepik__a-cylindrical-arrangement-of-colorful-intertwined-__34820.jpeg"
-                  alt=""
-                  className="object-cover w-full h-full absolute transition-opacity ease-out duration-700"
-                />
-                <div className="prodesc absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center opacity-0">
-                  Hare krishna
-                </div>
-              </div>
-            </div>
-          </div> */}
-        </div>
       <div ref={containerRef} className="main w-full " >
       <div data-color="black" className="home section w-full h-[200vh] relative bg-black">
         <div className="w-full sticky top-0 left-0">
@@ -744,6 +375,7 @@ const Page = () => {
         </div>
       </div>
       </div>
+      
     </>
   );
 };

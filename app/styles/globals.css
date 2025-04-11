@@ -276,7 +276,7 @@ nav h3 {
 }
 
 #loader h1:nth-child(3) {
-  animation-delay: 2s;
+  animation-delay: 2.5s;
 }
 
 @keyframes load {

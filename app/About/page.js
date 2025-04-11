@@ -24,7 +24,7 @@ export default function BackgroundTransition() {
      if (loader) {
        gsap.to(loader, {
          top: "-100%", // Move loader off-screen
-         duration: 0.5, // Animation duration
+         duration: 1, // Animation duration
          delay: 1, // Delay before animation starts
          ease: "power2.inOut", // Smooth easing
          onComplete: () => {
