@@ -63,6 +63,7 @@ const Header = () => {
       { name: "Product", path: "/Product" },
       { name: "Gallery", path: "/Gallery" },
       { name: "Contact", path: "/Contact" },
+      { name: "Testimonial", path: "/Testimonial" },
     ].map(({ name, path }) => (
       <a key={name} href={path}>
         <h4 className="relative px-6 py-2 font-bold bg-white rounded-3xl text-rp transition duration-300 overflow-hidden group border-none">
